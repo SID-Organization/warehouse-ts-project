@@ -11,7 +11,7 @@ A simple system to manage your tools.
 
 
 ## 🚀 About Us
-We care about everyone's routine and time, that's why we created the Warehouse System
+We are looking to improve the time spent when teachers request for materials to use in their class, then, we created the Warehouse System
 
 
 ## 🛠 Skills
