@@ -1,12 +1,11 @@
 import './styles.scss'
 
-import SideBar from '../side-bar'
 
 export default function AttendantHome() {
     return (
         <div className=" attendant-home">
-            <div>
-                <h1>Attendant</h1>
+            <div className='page-title'>
+                <h1>Reservas</h1>
             </div>
         </div>
     );

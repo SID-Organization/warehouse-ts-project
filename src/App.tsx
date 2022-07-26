@@ -8,10 +8,11 @@ import Header from './components/header/Header';
 import TeacherHome from './pages/teacher/home';
 
 import AttendantHome from './pages/attendant/home';
-import SideBar from './pages/attendant/side-bar';
+import PendentReserves from './pages/attendant/pendent-reserves';
+import AttendantSideBar from './pages/attendant/side-bar';
 
 import Login from './pages/login';
-    
+
 export default function App() {
     return (
         <>
@@ -20,9 +21,12 @@ export default function App() {
                     <Routes>
                         <Route path="/login" element={<Login />} />
 
-                        <Route path='atendente' element={<Header />}>
-                            <Route path='' element={<SideBar />} >
-                                <Route path='reservas' element={<AttendantHome />} />
+                        <Route path='atendente'>
+                            <Route path='' element={<Header />}>
+                                <Route path='' element={<AttendantSideBar />} >
+                                    <Route path='reservas' element={<AttendantHome />} />
+                                    <Route path='reservas-pendentes' element={<PendentReserves />} />
+                                </Route>
                             </Route>
                         </Route>
 
