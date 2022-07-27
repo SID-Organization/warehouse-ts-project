@@ -8,4 +8,31 @@
             font-weight: 700;
         }
     }
+
+    .info-container{
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        .todays-date{
+            color: #707070;
+        }
+
+        .button-filter{
+            width: 7rem;
+            height: 1.7rem;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10vw;
+            
+            cursor: pointer;
+            background-color: #0047B5;
+            border-radius: 2px;
+            border: 1px solid #3A6EC1;
+            color: #fff;
+            font-size: 14px;
+        }
+    }
 }
