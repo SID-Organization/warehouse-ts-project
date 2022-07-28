@@ -10,10 +10,10 @@ export default function ReserveCard() {
                 <img src={avatar} alt="" />
                 <div className="user-infos">
                     <div className="user-name">
-                        
+                        <p>Ricardo Gabiec</p>
                     </div>
                     <div className="user-area">
-
+                        <p>Química</p>
                     </div>
                 </div>
             </div>
