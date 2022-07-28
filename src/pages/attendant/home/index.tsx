@@ -6,6 +6,40 @@ import ReserveCard from '../../../components/reserve-card/ReserveCard';
 export default function AttendantHome() {
 
     const [today, setToday] = useState(new Date().toLocaleDateString());
+    const [openFilter, setOpenFilter] = useState(false);
+
+    const createDateTitle = () => {
+        return <div className="date-title">{today}</div>
+    }
+
+    useEffect(() => {
+        const filterButtonText = document.querySelector('#filter-button-txt') as HTMLParagraphElement;
+        openFilter ? filterButtonText.innerHTML = 'Consultar' : filterButtonText.innerHTML = 'Filtros';
+    }, [openFilter])
+
+    const filterBody = () => {   
+        return (
+            <div className="filter-body">
+                <div className="filter-item">
+                    <p>Data</p>
+                    <input type="date" />
+                </div>
+                <div className="filter-item">
+                    <p>Horário</p>
+                    <input type="time" />
+                </div>
+                <div className="filter-item">
+                    <p>Local</p>
+                    <input type="text" />
+                </div>
+                <div className="filter-item">
+                    <p>Professor</p>
+                    <input type="text" />
+                </div>
+            </div>
+        )
+    }
+
 
     useEffect(() => {
     }, [])
@@ -21,23 +55,29 @@ export default function AttendantHome() {
                         Hoje, {today}
                     </p>
                 </div>
-                <button className="button-filter">
+                {openFilter && filterBody()}
+                <button className="button-filter" onClick={() => setOpenFilter(!openFilter)}>
                     <div className="content">
-                        <p>Filtros</p>
+                        <p id="filter-button-txt">Filtros</p>
                     </div>
                     <div className="sort-icon">
+                        {/* Falta colocar este icon */}
                     </div>
                 </button>
             </div>
+
             <div className="reserve-cards">
+                {createDateTitle()}
+                <ReserveCard />
+                <ReserveCard />
+                <ReserveCard />
+                {createDateTitle()}
                 <ReserveCard />
                 <ReserveCard />
                 <ReserveCard />
                 <ReserveCard />
                 <ReserveCard />
-                <ReserveCard />
-                <ReserveCard />
-                <ReserveCard />
+                {createDateTitle()}
                 <ReserveCard />
                 <ReserveCard />
             </div>

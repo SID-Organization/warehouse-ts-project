@@ -37,6 +37,12 @@
 
 
     .reserve-cards{
-        margin-top: 2rem;
+        .date-title:not(:first-child){
+
+            margin-top: 2rem;
+        }
+
+        margin-top: 1rem;
+
     }
 }
