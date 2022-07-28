@@ -6,23 +6,32 @@ import { useEffect, useState } from "react";
 
 import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
-import { eye } from "react-icons-kit/feather/eye";
+import { eye } from "react-icons-kit/feather/eye";  
+
+import avatar from "../../assets/user.png";
+import padlock from "../../assets/passwd-lock.png";
 
 export default function Login() {
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
 
-  useEffect(() => {}, [icon]);
+  useEffect(() => {
+    handleIconChange();
+  }, [type]);
+
+  const handleIconChange = () => {
+    icon == eyeOff ? setIcon(eye) : setIcon(eyeOff);
+  }
 
   const handleToggle = () => {
     if (type === "password") {
       setType("text");
-      setIcon(eyeOff);
     } else {
       setType("password");
-      setIcon(eye);
     }
   };
+
+  
   return (
     <div className="loginPage">
       <header>
@@ -44,7 +53,7 @@ export default function Login() {
           <div className="containerForms">
             <div className="containerCredentials">
               <div className="containerUser">
-                <img className="loginIcon" src="../../assets/user.png" />
+                <img className="loginIcon" src={avatar} />
                 <input
                   className="inputUser"
                   type="text"
@@ -52,7 +61,7 @@ export default function Login() {
                 />
               </div>
               <div className="containerPassword">
-                <img className="loginIcon" src="../../assets/passwd-lock.png" />
+                <img className="loginIcon" src={padlock} />
                 <input id="inputPassword" type={type} placeholder="Senha" />
                 <span onClick={handleToggle}>
                   <Icon icon={icon} size="22" />
