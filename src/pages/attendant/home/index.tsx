@@ -33,6 +33,13 @@ export default function AttendantHome() {
                 <ReserveCard />
                 <ReserveCard />
                 <ReserveCard />
+                <ReserveCard />
+                <ReserveCard />
+                <ReserveCard />
+                <ReserveCard />
+                <ReserveCard />
+                <ReserveCard />
+                <ReserveCard />
             </div>
         </div>
     );
