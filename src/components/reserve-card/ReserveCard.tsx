@@ -23,13 +23,17 @@ export default function ReserveCard() {
                 </div>
             </div>
             <div className="card-infos">
+                <div className="card-status">
+                    <p id="title">Status</p>
+                    <p id="value">À retirar</p>
+                </div>
                 <div className="itens-quantity">
                     <p id="title">Qntd. Itens</p>
                     <p id="value">28</p>
                 </div>  
                 <div className="returning-date">
-                    <p id="title">Data de devolução</p>
-                    <p id="value">22/08/2022</p>
+                    <p id="title">Data e hora de devolução</p>
+                    <p id="value">22/08/2022 - 12:00</p>
                 </div>
                 <div className="access-icon">
                     <img src={accessIcon} alt="" />

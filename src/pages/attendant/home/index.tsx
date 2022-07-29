@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import './styles.scss'
 
 import ReserveCard from '../../../components/reserve-card/ReserveCard';
+import sortIcon from '../../../assets/sort-icon.png';
+import searchIcon from '../../../assets/search-icon.png';
 
 export default function AttendantHome() {
 
@@ -17,24 +19,26 @@ export default function AttendantHome() {
         openFilter ? filterButtonText.innerHTML = 'Consultar' : filterButtonText.innerHTML = 'Filtros';
     }, [openFilter])
 
-    const filterBody = () => {   
+    const filterBody = () => {
         return (
-            <div className="filter-body">
-                <div className="filter-item">
-                    <p>Data</p>
-                    <input type="date" />
-                </div>
-                <div className="filter-item">
-                    <p>Horário</p>
-                    <input type="time" />
-                </div>
-                <div className="filter-item">
-                    <p>Local</p>
-                    <input type="text" />
-                </div>
-                <div className="filter-item">
-                    <p>Professor</p>
-                    <input type="text" />
+            <div className="filter-container">
+                <div className="filter-body">
+                    <div className="filter-item">
+                        <p>Data</p>
+                        <input type="date" />
+                    </div>
+                    <div className="filter-item">
+                        <p>Horário</p>
+                        <input type="time" />
+                    </div>
+                    <div className="filter-item">
+                        <p>Local</p>
+                        <input type="text" />
+                    </div>
+                    <div className="filter-item">
+                        <p>Professor</p>
+                        <input type="text" />
+                    </div>
                 </div>
             </div>
         )
@@ -61,7 +65,7 @@ export default function AttendantHome() {
                         <p id="filter-button-txt">Filtros</p>
                     </div>
                     <div className="sort-icon">
-                        {/* Falta colocar este icon */}
+                        <img src={openFilter ? searchIcon : sortIcon} alt="" />
                     </div>
                 </button>
             </div>
