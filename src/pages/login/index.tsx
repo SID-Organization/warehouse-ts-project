@@ -76,7 +76,7 @@ export default function Login() {
           </div>
           <div className="containerButtons">
             <div className="containerLoginButton">
-              <Link to="/teacher/home">
+              <Link to="/professor/produtos">
                 <button className="buttonLogin">Entrar</button>
               </Link>
             </div>
