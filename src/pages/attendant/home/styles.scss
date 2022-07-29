@@ -46,33 +46,33 @@
         }
     }
 
-    .filter-container{  
-        width: 50%;
-        display: flex;
+    // .filter-container{  
+    //     width: 50%;
+    //     display: flex;
         
-        #exit-filter-icon{
-            width: 20px;
-            height: 20px;
-            margin-left: 5px;
-            cursor: pointer;
-        }
+    //     #exit-filter-icon{
+    //         width: 20px;
+    //         height: 20px;
+    //         margin-left: 5px;
+    //         cursor: pointer;
+    //     }
         
-        .filter-body{
-            width: 100%;
-            padding: 5px;
-            display: flex;
-            justify-content: space-evenly;
-            background-color: #f0f0f0;
-            border: 1px solid #707070;
+    //     .filter-body{
+    //         width: 100%;
+    //         padding: 5px;
+    //         display: flex;
+    //         justify-content: space-evenly;
+    //         background-color: #f0f0f0;
+    //         border: 1px solid #707070;
 
-            .filter-item{
-                display: flex;
-                justify-content: space-between;
-                margin-top: 5px ;
-            }
+    //         .filter-item{
+    //             display: flex;
+    //             justify-content: space-between;
+    //             margin-top: 5px ;
+    //         }
 
-        }
-    }
+    //     }
+    // }
 
     .reserve-cards {
         .date-title:not(:first-child) {

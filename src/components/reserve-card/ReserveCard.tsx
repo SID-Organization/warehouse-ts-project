@@ -42,7 +42,7 @@ export default function ReserveCard() {
         </div>
         <div className="action-buttons">
             <div className="accept-btn">
-                <img src={acceptIcon} alt="Botão aceitar reserva" />
+                <img src={acceptIcon} alt="Botão aceitar reserva" title='Confirmar retirada'/>
             </div>
             <div className="decline-btn">
                 <img src={declineIcon} alt="Botão cancelar reserva" />
