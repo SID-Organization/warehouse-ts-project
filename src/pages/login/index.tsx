@@ -97,7 +97,7 @@ export default function Login() {
             </div>
           </div>
           <div className="containerRegister">
-            <Link className="registerText" to="/register">
+            <Link className="registerText" to="/cadastro">
               Não tem uma conta? Registre-se
             </Link>
           </div>
