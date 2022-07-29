@@ -1,5 +1,10 @@
 import "./styles.scss";
 
+import gradeLayout from "../../../assets/gradeLayout.png";
+import hammerImg from "../../../assets/hammer.png";
+import interrogation from "../../../assets/interrogation.png";
+import add from "../../../assets/add.png";
+
 export default function TeacherHome() {
   return (
     <div className="teacherHomePage">
@@ -60,13 +65,18 @@ export default function TeacherHome() {
       <main>
         <div className="containerProductsCard">
           <div className="changeLayout">
-            <div className="containerIconChange"></div>
+            <div className="containerIconChange">
+              <div className="ballIcon">
+                <img className="iconGrade" src={gradeLayout} />
+              </div>
+            </div>
           </div>
           <div className="card">
             <div className="cardHeader">
               <div className="containerCardImage">
-                <div className="cardImage"></div>
-                <div className="descriptionTypeOftool"></div>
+                <div className="cardImage">
+                  <img className="imageCard" src={hammerImg} />
+                </div>
               </div>
               <div className="containerToolName">
                 <div className="toolName">
@@ -76,23 +86,32 @@ export default function TeacherHome() {
                 </div>
               </div>
               <div className="containerSeeMore">
-                <div className="containerIcon">{/* icon here */}</div>
+                <div className="containerIcon">
+                  <img className="intIcon" src={interrogation} alt="" />
+                </div>
               </div>
             </div>
             <div className="cardFooter">
-                <div className="containerEstoque">
-                    <h1 className="h1Estoque">Estoque</h1>
+              <div className="descriptionTypeOftool">
+                <h1 className="h1TypeTool">Ferramenta manual</h1>
+              </div>
+              <div className="containerEstoque">
+                <div className="containerEstoqueAndQty">
+                  <h1 className="h1Estoque">Estoque: </h1>
+                  <h1 className="h1EstoqueQty">17</h1>
                 </div>
                 <div className="containerQuantityAndAdd">
-                    <div className="containerQty">
-                        <div className="containerH1Quantidade">
-                            <h1 className="h1Qty">Quantidade</h1>
-                        </div>
-                        <div className="containerIconAddMore">
-                            {/* icon here */}
-                        </div>
+                  <div className="containerQty">
+                    <div className="containerH1Quantidade">
+                      <h1 className="h1Qty">Quantidade</h1>
+                      <input className="inputQty" type="number" />
                     </div>
+                  </div>
                 </div>
+                <div className="containerIconAddMore">
+                  <img className="addMoreIcon" src={add} alt="" />
+                </div>
+              </div>
             </div>
           </div>
         </div>

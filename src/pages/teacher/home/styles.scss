@@ -91,33 +91,223 @@ input:not(:placeholder-shown) ~ .reset {
   margin-top: 3px;
 }
 
-@media screen and (max-width: 768px) {
-  .containerHeaderTeacher {
-    flex-direction: column;
-  }
-  .containerProductsTitle {
-    margin: 1rem;
-    width: 100%;
-  }
-  .productTitle {
-    display: flex;
-    justify-content: center;
-  }
-  .h1Produtos {
-    font-size: 20px;
-  }
-  .containerSearchInput {
-    margin-right: 0;
-  }
-  .form {
-    --width-of-input: 100%;
-  }
-}
-
 .card {
   width: 300px;
   height: 135px;
   border-radius: 8px;
   background: #f0f0f0;
   box-shadow: 5px 6px 26px #bebebe, -15px -15px 30px #ffffff;
+  border: 1px solid #00000033;
+}
+
+.containerIconChange {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.ballIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #0047b5;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 10rem;
+}
+
+.iconGrade {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .containerHeaderTeacher {
+    flex-direction: column;
+  }
+  .containerProductsTitle {
+    width: 100%;
+  }
+  .productTitle {
+    display: flex;
+    justify-content: center;
+  }
+  .containerSearchInput {
+    margin-right: 0;
+  }
+  .form {
+    width: 100%;
+  }
+  .card {
+    width: 100%;
+  }
+  .containerIconChange {
+    display: none;
+  }
+
+  .ballIcon {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .iconGrade {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .containerIconChange {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+
+  .ballIcon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #0047b5;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10rem;
+  }
+}
+
+.imageCard {
+  width: 3rem;
+  height: 3rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: center;
+}
+
+.h1Tool {
+  font-size: 16px;
+  display: block;
+  width: 164px;
+  height: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.intIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.containerSeeMore {
+  display: flex;
+  justify-content: center;
+}
+
+.cardImage {
+  background-color: #d9d9d9;
+  border-radius: 0.2rem;
+  margin: 6px;
+  height: 55px;
+  width: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerToolName {
+  display: flex;
+  margin: 12px;
+}
+
+.containerIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9d9d9;
+  border-radius: 0.2rem;
+  width: 27px;
+  height: 28px;
+  margin: 6px;
+  cursor: pointer;
+}
+
+.h1TypeTool {
+  font-size: 14px;
+  color: #707070;
+  font-weight: 600;
+}
+
+.containerCardImage {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.descriptionTypeOftool {
+  margin-left: 8px;
+}
+
+.containerEstoque {
+  display: flex;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  margin-top: 4px;
+}
+
+.h1Estoque {
+  font-size: 14px;
+  font-weight: 500;
+  color: #707070;
+  margin-left: 8px;
+}
+.h1EstoqueQty {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.h1Qty {
+  font-size: 14px;
+  font-weight: 500;
+  color: #707070;
+  display: flex;
+  justify-content: center;
+}
+
+.addMoreIcon {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 7px;
+}
+
+.containerIconAddMore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputQty {
+  background-color: #d9d9d9;
+  border: black solid 1px;
+  outline: none;
+  border-radius: 0.2rem;
+  height: 23px;
+  width: 100px;
+  font-weight: 600;
+}
+
+.containerH1Quantidade {
+  margin-left: 3rem;
+}
+
+.containerEstoqueAndQty {
+  display: flex;
+  column-gap: 8px;
+  margin-top: 17px;
 }
