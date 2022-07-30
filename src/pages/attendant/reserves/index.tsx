@@ -9,6 +9,9 @@ import ReserveCard from '../../../components/reserve-card/ReserveCard';
 import GridReserveCard from '../../../components/grid-reserve-card/GridReserveCard';
 import Filter from '../../../components/filter/Filter';
 
+
+import gridIcon from "../../../assets/gradeLayout.png";
+import listIcon from "../../../assets/list.png";
 import sortIcon from '../../../assets/sort-icon.png';
 import searchIcon from '../../../assets/search-icon.png';
 
@@ -31,17 +34,17 @@ export default function AttendantReserves() {
     const handleSearchClick = () => {
         var scrollDiv = document.getElementById(listLayout ? "list-reserve-cards" : "grid-reserve-cards-wrapper")!.offsetTop;
 
-        window.scrollTo({ top: scrollDiv-60, behavior: 'smooth'});
+        window.scrollTo({ top: scrollDiv - 60, behavior: 'smooth' });
     }
 
     useEffect(() => {
-        
-    },[]);
+
+    }, []);
 
     const lista = [1, 2, 3, 4, 5];
 
     return (
-        <div className=" attendant-home">
+        <div className=" attendant-reserves-container">
             <div className='page-title'>
                 <h1>Reservas</h1>
             </div>
@@ -61,18 +64,16 @@ export default function AttendantReserves() {
                             <img src={openFilter ? searchIcon : sortIcon} alt="" />
                         </div>
                     </button>
-                    <button onClick={() => setListLayout(!listLayout)}>{listLayout ? "Grid" : "Lista"}</button>
+                    <div className="list-grid-icon-background">
+                        <img
+                            className="grid-list-icon"
+                            src={listLayout ? gridIcon : listIcon}
+                            onClick={() => setListLayout(!listLayout)}
+                        />
+                    </div>
+                    <button >{listLayout ? "Grid" : "Lista"}</button>
                 </div>
             </div>
-            {/* {
-                    lista2.map((item) => {
-                        return (
-                            <div>
-                                {item.reduce((div: string, item2: number) => div+item2.toString(), '')}
-                            </div>
-                        )
-                    })
-                } */}
 
             <div id={listLayout ? "list-reserve-cards" : "grid-reserve-cards-wrapper"}>
                 {listLayout ?

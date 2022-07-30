@@ -1,201 +1,19 @@
 .cardList {
-  width: 78rem;
+  width: 100%;
   height: 4rem;
   border-radius: 8px;
   background: #f0f0f0;
   box-shadow: 0px 4px 17px #bebebe, -15px -5px 20px #ffffff;
   border: 1px solid #00000033;
   margin-bottom: 1rem;
-}
 
-.containerSpecifications {
-  display: flex;
-}
-
-.containerImage {
-  display: flex;
-  align-items: center;
-}
-
-.bgImage {
-  background-color: #d9d9d9;
-  border-radius: 3.2rem;
-  margin: 6px;
-  height: 50px;
-  width: 55px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    width: 2.2rem;
-    height: 2.2rem;
-  }
-}
-
-.titleH1 {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.subtitleH1 {
-  font-size: 14px;
-  color: #707070;
-  font-weight: 500;
-}
-
-.containerTitleAndSubtitle {
-  display: grid;
-  margin-left: 8px;
-}
-
-.containerEstoque {
-  display: flex;
-}
-
-.estoqueH1 {
-  font-size: 14px;
-  color: #707070;
-  font-weight: 500;
-}
-
-.qtyH1 {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.containerBothH1 {
-  display: flex;
-  align-items: center;
-  margin-top: 7px;
-  column-gap: 6px;
-}
-
-.containerContentCard {
-  display: flex;
-  justify-content: space-between;
-}
-
-.containerBallRemove {
-  background-color: #d9d9d9;
-  border-radius: 3.2rem;
-  height: 1.5rem;
-  width: 1.5rem;
-  cursor: pointer;
-  transition: 0.2s;
-
-  &:hover {
-    background-color: #eaeaea;
-  }
-
-}
-.containerBallAdd {
-  background-color: #d9d9d9;
-  border-radius: 3.2rem;
-  height: 1.5rem;
-  width: 1.5rem;
-  cursor: pointer;
-  transition: 0.2s;
-
-  &:hover {
-    background-color: #eaeaea;
-  }
-}
-
-.containerButtonsAndInput {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 9px;
-  margin-top: 1px;
-}
-
-.containerH1Qty {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  h1 {
-    font-size: 14px;
-    font-weight: 500;
-    color: #707070;
-  }
-}
-
-.containerAddMore {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-
-  img {
-    width: 30px;
-    height: 30px;
-  }
-}
-
-.containerQtyAndAdd {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 19px;
-  column-gap: 54px;
-}
-
-.containerMinus {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    width: 16px;
-    height: 24px;
-  }
-}
-
-.containerPlus {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    width: 14px;
-    height: 13px;
-    margin-top: 5px;
-  }
-}
-
-.containerInput {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  input {
-    width: 2.5rem;
-    height: 1.5rem;
-    border-radius: 5px;
-    border: 2px solid #000000;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    background-color: #d9d9d9;
-  }
-}
-
-//make responsive in mobile
-@media (max-width: 768px) {
-  .cardList {
-    width: 100%;
-  }
 
   .containerSpecifications {
     display: flex;
-    flex-direction: column;
   }
 
   .containerImage {
     display: flex;
-    flex-direction: column;
     align-items: center;
   }
 
@@ -365,12 +183,196 @@
     }
   }
 
-  //let the card be smaller in mobile and all the fonts be smaller
-  .cardList {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-size: 12px;
+  //make responsive in mobile
+  @media (max-width: 768px) {
+    .cardList {
+      width: 100%;
+    }
+
+    .containerSpecifications {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .containerImage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bgImage {
+      background-color: #d9d9d9;
+      border-radius: 3.2rem;
+      margin: 6px;
+      height: 50px;
+      width: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+    }
+
+    .titleH1 {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .subtitleH1 {
+      font-size: 14px;
+      color: #707070;
+      font-weight: 500;
+    }
+
+    .containerTitleAndSubtitle {
+      display: grid;
+      margin-left: 8px;
+    }
+
+    .containerEstoque {
+      display: flex;
+    }
+
+    .estoqueH1 {
+      font-size: 14px;
+      color: #707070;
+      font-weight: 500;
+    }
+
+    .qtyH1 {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .containerBothH1 {
+      display: flex;
+      align-items: center;
+      margin-top: 7px;
+      column-gap: 6px;
+    }
+
+    .containerContentCard {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .containerBallRemove {
+      background-color: #d9d9d9;
+      border-radius: 3.2rem;
+      height: 1.5rem;
+      width: 1.5rem;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        background-color: #eaeaea;
+      }
+
+    }
+
+    .containerBallAdd {
+      background-color: #d9d9d9;
+      border-radius: 3.2rem;
+      height: 1.5rem;
+      width: 1.5rem;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        background-color: #eaeaea;
+      }
+    }
+
+    .containerButtonsAndInput {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 9px;
+      margin-top: 1px;
+    }
+
+    .containerH1Qty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        font-size: 14px;
+        font-weight: 500;
+        color: #707070;
+      }
+    }
+
+    .containerAddMore {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .containerQtyAndAdd {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 19px;
+      column-gap: 54px;
+    }
+
+    .containerMinus {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 16px;
+        height: 24px;
+      }
+    }
+
+    .containerPlus {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 14px;
+        height: 13px;
+        margin-top: 5px;
+      }
+    }
+
+    .containerInput {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      input {
+        width: 2.5rem;
+        height: 1.5rem;
+        border-radius: 5px;
+        border: 2px solid #000000;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        background-color: #d9d9d9;
+      }
+    }
+
+    //let the card be smaller in mobile and all the fonts be smaller
+    .cardList {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+    }
   }
 }

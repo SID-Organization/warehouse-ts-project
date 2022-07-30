@@ -20,29 +20,33 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 
 export default function App() {
-    return (
-        <>
-            <div className="screen-content">
-                <Router>
-                    <Routes>
-                        <Route path="*" element={<Navigate to="/login" />} />
-                        <Route path="/login" element={<Login />} />
+  return (
+    <>
+      <div className="screen-content">
+        <Router>
+          <Routes>
+            <Route path="*" element={<Navigate to="/login" />} />
+            <Route path="/login" element={<Login />} />
 
-                        <Route path='/atendente' >
-                            <Route path='' element={<Header />}>
-                                <Route path='' element={<AttendantSideBar />} >
-                                    <Route path='home' element={<AttendantHome />}/>
-                                    <Route path='reservas' element={<AttendantReserves />} />
-                                </Route>
-                            </Route>
-                        </Route>
+            <Route path='/atendente' >
+              <Route path='' element={<Header />}>
+                <Route path='' element={<AttendantSideBar />} >
+                  <Route path='home' element={<AttendantHome />} />
+                  <Route path='reservas' element={<AttendantReserves />} />
+                </Route>
+              </Route>
+            </Route>
 
-                        <Route path='/teacher'>
-                            <Route path='home' element={<TeacherHome />} />
-                        </Route>
-                    </Routes>
-                </Router>
-            </div>
-        </>
-    )
+            <Route path='/professor'>
+              <Route path='' element={<Header />}>
+                <Route path='' element={<AttendantSideBar />} >
+                  <Route path='produtos' element={<TeacherHome />} />
+                </Route>
+              </Route>
+            </Route>
+          </Routes>
+        </Router>
+      </div>
+    </>
+  )
 }

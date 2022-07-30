@@ -23,11 +23,14 @@ export default function ListProductCardTeacher() {
                   Martelo de metal caso o nome for maior
                 </h1>
               </div>
+            </div>
               <div className="containerSubtitle">
                 <h1 className="subtitleH1">Ferramenta manual</h1>
               </div>
-            </div>
-            <div className="containerEstoque">
+          </div>
+        </div>
+        <div className="containerQtyAndAdd">
+        <div className="containerEstoque">
               <div className="containerEstoqueH1">
                 <h1 className="estoqueH1">Estoque:</h1>
               </div>
@@ -35,9 +38,6 @@ export default function ListProductCardTeacher() {
                 <h1 className="qtyH1">17</h1>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="containerQtyAndAdd">
           <div className="containerQty">
             <div className="containerH1Qty">
               <h1>Quantidade</h1>

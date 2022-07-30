@@ -3,13 +3,13 @@ import "./styles.scss";
 import gradeLayout from "../../../assets/gradeLayout.png";
 import listLayout from "../../../assets/list.png";
 
+
 import ProductCardTeacher from "../../../components/product-card-teacher/productCardTeacher";
 import ListProductCardTeacher from "../../../components/list-product-card-teacher/ListProductCardTeacher";
 import { useState } from "react";
 
 export default function TeacherHome() {
   const [listFormatClicked, setListFormatClicked] = useState(false);
-  const [iconList, setIconList] = useState(listLayout);
 
   const listFormat = () => {
     return (
@@ -98,6 +98,7 @@ export default function TeacherHome() {
                   placeholder="Pesquise por produtos"
                   type="text"
                 />
+                {/* <Filter /> */}
                 <button className="reset" type="reset">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -126,13 +127,13 @@ export default function TeacherHome() {
               <div className="ballIcon">
                 <img
                   className="iconGrade"
-                  src={listLayout}
+                  src={listFormatClicked ? gradeLayout : listLayout }
                   onClick={() => setListFormatClicked(!listFormatClicked)}
                 />
               </div>
             </div>
           </div>
-          <div className="containerCard">
+          <div className={listFormatClicked ? "containerListCards" : "containerGridCards"}>
             {listFormatClicked ? listFormat() : gridFormat()}
           </div>
         </div>

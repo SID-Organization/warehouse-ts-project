@@ -91,9 +91,14 @@ input:not(:placeholder-shown) ~ .reset {
   margin-top: 3px;
 }
 
-.containerCard {
-  display: flex;
-  flex-wrap: wrap;
+.containerGridCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
   column-gap: 18px;
+}
+
+.containerListCards{
+    display: flex;
+    flex-direction: column;
 }

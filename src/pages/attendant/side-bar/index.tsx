@@ -9,9 +9,20 @@ import home from '../../../assets/home.png';
 
 export default function AttendantSideBar() {
 
-    const [selectedLink, setSelectedLink] = useState(1);
+    const [selectedLink, setSelectedLink] = useState('');
 
+    const handlePageChange = (page:string) => {
+        localStorage.setItem('currentPage', page);
+    }
 
+    const selectedItem = () => {
+        const newPage = localStorage.getItem('currentPage');
+        setSelectedLink(newPage!);
+    }
+
+    useEffect(() => {
+        selectedItem();
+    },[selectedLink]);
 
     return (
         <>
@@ -20,16 +31,16 @@ export default function AttendantSideBar() {
                     <div className="links">
 
                     <Link to='home'
-                    onClick={() => setSelectedLink(1)}
-                    {...selectedLink === 1 && { className: 'selected-link' }}
+                    onClick={() => handlePageChange('home')}
+                    {...selectedLink === 'home' && { className: 'selected-link' }}
                     >    
                         <img src={home} alt="Home icon" />
                         <p>Home</p>
                     </Link>
 
                     <Link to='reservas'
-                    onClick={() => setSelectedLink(2)}
-                    {...selectedLink === 2 && { className: 'selected-link' }}
+                    onClick={() => handlePageChange('reservas')}
+                    {...selectedLink === 'reservas' && { className: 'selected-link' }}
                     >    
                         <img src={calendar} alt="Calendário" />
                         <p>Reservas</p>
