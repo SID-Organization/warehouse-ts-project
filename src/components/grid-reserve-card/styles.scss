@@ -1,0 +1,104 @@
+.grid-reserve-container {
+
+    display: flex;
+    justify-content: center;
+
+    .reserve-card {
+        width: 100%;
+        height: 25rem;
+        padding: 12px;
+        background-color: #F0F0F0;
+        border: 1px solid #707070;
+        border-radius: 5px;
+
+        .reserve-card-header {
+            display: flex;
+            justify-content: space-between;
+
+            .teacher-infos {
+                display: flex;
+
+                .teacher-avatar {
+                    img {
+                        width: 50px;
+                    }
+                }
+
+                .teacher-name-subject{
+                    display: flex;
+                    margin-left: 0.5rem;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+
+                    .teacher-name {
+                        font-size: 18px;
+                        font-weight: 400;
+                    }
+
+                    .teacher-subject {
+                        font-size: 16px;
+                        color: #707070;
+                    }
+                }
+            }
+            .action-buttons{
+                width: 25%;
+                display: flex;
+                justify-content: space-between;
+                div{
+                    img{
+                        width: 40px;
+                    }
+                }
+            }
+        }
+
+        .reserve-card-body{
+            margin-top: 1rem;
+            width: 100%;
+
+            .reserve-infos{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                
+                div{
+                    display: flex;
+                    justify-content: flex-start;
+                    margin-left: 20px;
+                    
+
+                    #id, #status{
+                        margin-right: 1rem;
+                        color: #707070
+                    }
+                }
+            }
+
+            .dates-infos{
+                margin-top: 1.5rem;
+
+                .dates-table{
+                    width: 100%;
+                    border: 1px solid #707070;
+
+                    border-collapse: collapse;
+
+
+                    td,th{
+                        padding: 5px;
+                        font-size: 12px;
+                        border: 1px solid #707070;
+                        text-align: center;
+                    }
+                    th{
+                        font-weight: 500;
+                        color:#707070
+                    }
+                }
+            }
+
+        }
+
+    }
+}

@@ -5,7 +5,7 @@ import './styles.scss'
 
 import calendar from '../../../assets/calendar.png';
 import clock from '../../../assets/clock.png';
-
+import home from '../../../assets/home.png';
 
 export default function AttendantSideBar() {
 
@@ -19,21 +19,21 @@ export default function AttendantSideBar() {
                 <div className="side-bar-container">
                     <div className="links">
 
-                    <Link to='reservas'
+                    <Link to='home'
                     onClick={() => setSelectedLink(1)}
                     {...selectedLink === 1 && { className: 'selected-link' }}
+                    >    
+                        <img src={home} alt="Home icon" />
+                        <p>Home</p>
+                    </Link>
+
+                    <Link to='reservas'
+                    onClick={() => setSelectedLink(2)}
+                    {...selectedLink === 2 && { className: 'selected-link' }}
                     >    
                         <img src={calendar} alt="Calendário" />
                         <p>Reservas</p>
                     </Link>
-
-                    <Link to='reservas-pendentes'
-                    onClick={() => setSelectedLink(2)}
-                    {...selectedLink === 2 && { className: 'selected-link' }}
-                    >
-                        <img src={clock} alt="Relógio" />
-                        <p>Reservas pendentes</p>
-                    </Link> 
 
                     </div>
                 </div>
