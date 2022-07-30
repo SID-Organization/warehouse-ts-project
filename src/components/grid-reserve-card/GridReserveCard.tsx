@@ -10,7 +10,69 @@ export default function ReserveCard() {
         <>
             <div className="grid-reserve-container">
                 <div className='reserve-card'>
-                    
+                    <div className="reserve-card-header">
+                        <div className="teacher-infos">
+                            <div className="teacher-avatar">
+                                <img src={avatar} alt="avatar" />
+                            </div>
+                            <div className="teacher-name-subject">
+                                <p className="teacher-name">
+                                    Carlinhos Rech
+                                </p>
+                                <p className="teacher-subject">
+                                    Elétrica
+                                </p>
+                            </div>
+                        </div>
+                        <div className="action-buttons">
+                            <div className="accept-btn">
+                                <img src={acceptIcon} alt="Botão de confirmar retirada" />
+                            </div>
+                            <div className="decline-btn">
+                                <img src={declineIcon} alt="Botão de cancelar retirada" />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="reserve-card-body">
+                        <div className="reserve-infos">
+                            <div className="reserve-id">
+                                <p id="id">ID:</p>
+                                <p id="id-value">00018</p>
+                            </div>
+                            <div className="reserve-status">
+                                <p id="status">Status:</p>
+                                <p id="status-value">À retirar</p>
+                            </div>
+                        </div>
+                        <div className="dates-infos">
+                            <table className="dates-table">
+                                <thead>
+                                    <tr>
+                                        <th>Reservado</th>
+                                        <th>Retirada</th>
+                                        <th>Devolução</th>
+                                    </tr>
+                                </thead>
+                                    <tr>
+                                        <td>
+                                            <p className="date">16/08/2022</p>
+                                            <p className="hour">15:43</p>
+                                        </td>
+                                        <td>
+                                            <p className="date">18/08/2022</p>
+                                            <p className="hour">07:30</p>
+                                        </td>
+                                        <td>
+                                            <p className="date">22/08/2022</p>
+                                            <p className="hour">12:00</p>
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                        <div className="reserved-itens">
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
