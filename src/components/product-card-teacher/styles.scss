@@ -3,7 +3,7 @@
   height: 135px;
   border-radius: 8px;
   background: #f0f0f0;
-  box-shadow: 5px 6px 26px #bebebe, -15px -15px 30px #ffffff;
+  box-shadow: 5px 6px 26px #bebebe, -15px -5px 20px #ffffff;
   border: 1px solid #00000033;
   margin-bottom: 2rem;
 }
@@ -12,19 +12,25 @@
   display: flex;
   justify-content: end;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .ballIcon {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background: #0047b5;
-  margin-right: 5px;
+  background: #0048b5b5;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-right: 10rem;
+  margin-right: 40px;
+  transition: 0.2s;
+
+  &:hover {
+    background: #0047b5;
+  }
+
 }
 
 .iconGrade {
@@ -189,8 +195,8 @@
 }
 
 .addMoreIcon {
-  width: 2rem;
-  height: 2rem;
+  width: 30px;
+  height: 30px;
   margin-top: 7px;
   cursor: pointer;
 }
