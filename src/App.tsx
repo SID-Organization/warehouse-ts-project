@@ -8,7 +8,7 @@ import Header from './components/header/Header';
 import TeacherHome from './pages/teacher/home';
 
 import AttendantHome from './pages/attendant/home';
-import PendentReserves from './pages/attendant/pendent-reserves';
+import AttendantReserves from './pages/attendant/reserves';
 import AttendantSideBar from './pages/attendant/side-bar';
 
 import Login from './pages/login';
@@ -25,8 +25,8 @@ export default function App() {
                         <Route path='/atendente' >
                             <Route path='' element={<Header />}>
                                 <Route path='' element={<AttendantSideBar />} >
-                                    <Route path='reservas' element={<AttendantHome />} />
-                                    <Route path='reservas-pendentes' element={<PendentReserves />} />
+                                    <Route path='home' element={<AttendantHome />}/>
+                                    <Route path='reservas' element={<AttendantReserves />} />
                                 </Route>
                             </Route>
                         </Route>
