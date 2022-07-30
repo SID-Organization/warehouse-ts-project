@@ -1,12 +1,9 @@
-import './styles.scss'
+import './styles.scss';
 
-
-export default function AttendantHome() {
-    return (
-        <div className=" attendant-home">
-            <div className='page-title'>
-                <h1>Reservas</h1>
-            </div>
+export default function Home(){
+    return(
+        <div>
+            <h1>Home</h1>
         </div>
-    );
+    )
 }
