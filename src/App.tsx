@@ -1,17 +1,23 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 
-import './index.css'
+import "./index.css";
 
-import Header from './components/header/Header';
-import TeacherHome from './pages/teacher/home';
+import Header from "./components/header/Header";
+import TeacherHome from "./pages/teacher/home";
 
 import AttendantHome from './pages/attendant/home';
 import AttendantReserves from './pages/attendant/reserves';
 import AttendantSideBar from './pages/attendant/side-bar';
 
-import Login from './pages/login';
+import Login from "./pages/login";
+import Register from "./pages/register";
 
 export default function App() {
     return (
@@ -40,4 +46,3 @@ export default function App() {
         </>
     )
 }
-
