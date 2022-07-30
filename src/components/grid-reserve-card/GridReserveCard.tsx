@@ -9,7 +9,6 @@ export default function ReserveCard() {
   return (
     <>
     <div className="reserve-container">
-
         <div className='reserve-card'>
             <div className="user-profile">
                 <img src={avatar} alt="" />
