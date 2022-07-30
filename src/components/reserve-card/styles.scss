@@ -94,9 +94,12 @@
             justify-content: center;
             align-items: center;
 
+            &:hover{
+                cursor: pointer;
+                filter:brightness(1.5);
+            }
 
             img{
-                cursor: pointer;
                 width: 30px;
             }
         }
