@@ -29,10 +29,14 @@
             cursor: pointer;
             background-color: #0047B5;
             border-radius: 2px;
-            border: 1px solid #3A6EC1;
+            padding: 2px;
+            border: none;
             color: #fff;
             font-size: 14px;
 
+            &:hover {
+                filter:brightness(0.85);
+            }
 
             .sort-icon {
                 display: flex;
@@ -75,11 +79,20 @@
     // }
 
 
-    .reserve-cards {
+    #list-reserve-cards {
 
         .date-title:not(:first-child) {
             margin-top: 2rem;
         }
         margin-top: 1rem;
+    }
+
+    #grid-reserve-cards-wrapper{
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-column-gap: 1rem;
+        grid-row-gap: 1rem;
     }
 }

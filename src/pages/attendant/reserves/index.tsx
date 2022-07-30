@@ -6,6 +6,7 @@ import './styles.scss'
 // ];
 
 import ReserveCard from '../../../components/reserve-card/ReserveCard';
+import GridReserveCard from '../../../components/grid-reserve-card/GridReserveCard';
 import Filter from '../../../components/filter/Filter';
 
 import sortIcon from '../../../assets/sort-icon.png';
@@ -28,13 +29,16 @@ export default function AttendantReserves() {
     }
 
     const handleSearchClick = () => {
+        var scrollDiv = document.getElementById(listLayout ? "list-reserve-cards" : "grid-reserve-cards-wrapper")!.offsetTop;
+
+        window.scrollTo({ top: scrollDiv-60, behavior: 'smooth'});
     }
 
     useEffect(() => {
-        const filterButtonText = document.querySelector('#filter-button-txt') as HTMLParagraphElement;
-        openFilter ? filterButtonText.innerHTML = 'Consultar' : filterButtonText.innerHTML = 'Filtros';
-    }, [openFilter])
+        
+    },[]);
 
+    const lista = [1, 2, 3, 4, 5];
 
     return (
         <div className=" attendant-home">
@@ -48,16 +52,19 @@ export default function AttendantReserves() {
                     </p>
                 </div>
                 {openFilter && <Filter setOpenFilter={setOpenFilter} />}
-                <button className="button-filter" onClick={() => openFilter ? handleSearchClick() : setOpenFilter(true)}>
-                    <div className="content">
-                        <p id="filter-button-txt">Filtros</p>
-                    </div>
-                    <div className="sort-icon">
-                        <img src={openFilter ? searchIcon : sortIcon} alt="" />
-                    </div>
-                </button>
+                <div>
+                    <button className="button-filter" onClick={() => openFilter ? handleSearchClick() : setOpenFilter(true)}>
+                        <div className="content">
+                            <p id="filter-button-txt">{openFilter ? "Consultar" : "Filtros"}</p>
+                        </div>
+                        <div className="sort-icon">
+                            <img src={openFilter ? searchIcon : sortIcon} alt="" />
+                        </div>
+                    </button>
+                    <button onClick={() => setListLayout(!listLayout)}>{listLayout ? "Grid" : "Lista"}</button>
+                </div>
             </div>
-                {/* {
+            {/* {
                     lista2.map((item) => {
                         return (
                             <div>
@@ -67,15 +74,12 @@ export default function AttendantReserves() {
                     })
                 } */}
 
-            <div className={listLayout ? "list-reserve-cards" : "grid-reserve-cards"}>
-                    <ReserveCard />
-                    <ReserveCard />
-                    <ReserveCard />
-                    <ReserveCard />
-                    <ReserveCard />
-                    <ReserveCard />
-                    <ReserveCard />
-                    <ReserveCard />
+            <div id={listLayout ? "list-reserve-cards" : "grid-reserve-cards-wrapper"}>
+                {listLayout ?
+                    lista.map(e => (<ReserveCard />))
+                    :
+                    lista.map(e => (<GridReserveCard />))
+                }
             </div>
         </div>
     );

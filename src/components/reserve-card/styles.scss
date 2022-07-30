@@ -1,4 +1,4 @@
-.reserve-container {
+.list-reserve-container {
 
     display: flex;
     margin-top: 1rem;
@@ -18,9 +18,14 @@
         border: 1px solid #707070;
         border-radius: 5px;
 
+        &:hover{
+            cursor: pointer;
+            filter: brightness(0.95);
+        }
+
         .user-profile {
             height: 100%;
-            margin-left: 0.4rem;
+            margin-left: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -75,6 +80,8 @@
 
 
             .access-icon {
+                display: flex;
+                align-items: center ;
                 img {
                     width: 30px;
                 }
@@ -96,7 +103,7 @@
 
             &:hover{
                 cursor: pointer;
-                filter:brightness(1.5);
+                filter:brightness(0.6);
             }
 
             img{
