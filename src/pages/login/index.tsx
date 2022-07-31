@@ -1,19 +1,73 @@
 import "./styles.scss";
 
-import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+
+import jwtDecode from "jwt-decode";
 
 import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
-import { eye } from "react-icons-kit/feather/eye";  
+import { eye } from "react-icons-kit/feather/eye";
 
-import avatar from "../../assets/user.png";
+import userIcon from "../../assets/user.png";
 import padlock from "../../assets/passwd-lock.png";
 
+declare global {
+  const google: any;
+}
+
+
+
 export default function Login() {
+
+
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigateTo = useNavigate();
+
+  const usersList = [
+    {
+      email: 'professor',
+      password: '123',
+      accessType: 'teacher'
+    },
+    {
+      email: 'atendente',
+      password: '123',
+      accessType: 'attendant'
+    },
+    {
+      email: 'admin',
+      password: '123',
+      accessType: 'admin'
+    }
+  ]
+
+  function handleCallBackResponse(response: { credential: string }) {
+    console.log("JWT response: ", response.credential);
+    const userObject = jwtDecode(response.credential);
+    console.log(userObject);
+  }
+
+
+  useEffect(() => {
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: "421872872808-v1hqi6rng9jhg153em4mbnorolbk98uu.apps.googleusercontent.com",
+      callback: handleCallBackResponse
+    })
+
+    google.accounts.id.renderButton(
+      document.getElementById("signInDiv"),
+      { theme: "outline", size: "standard" },
+    )
+  }, []);
+
 
   useEffect(() => {
     handleIconChange();
@@ -31,7 +85,34 @@ export default function Login() {
     }
   };
 
-  
+  const handleLogin = () => {
+    const user = usersList.find(user => user.email === email && user.password === password);
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+      
+      
+      if (user.accessType === "admin") {
+        localStorage.setItem("adminUser", "true");
+        navigateTo("/admin/home", { replace: true });
+      }
+      if (user.accessType === "attendant") {
+        localStorage.setItem("attendantUser", "true");
+        navigateTo("/atendente/home", { replace: true });
+      }
+      if (user.accessType === "teacher") {
+        localStorage.setItem("teacherUser", "true");
+        navigateTo("/professor/produtos", { replace: true });
+      }
+      
+      window.location.reload();
+
+    } else {
+      alert("Usuário ou senha inválidos");
+    }
+  }
+
+
+
   return (
     <div className="loginPage">
       <header>
@@ -53,16 +134,27 @@ export default function Login() {
           <div className="containerForms">
             <div className="containerCredentials">
               <div className="containerUser">
-                <img className="loginIcon" src={avatar} />
+                <img className="loginIcon" src={userIcon} />
+
                 <input
                   className="inputUser"
                   type="text"
                   placeholder="Usuário"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
+
               <div className="containerPassword">
                 <img className="loginIcon" src={padlock} />
-                <input id="inputPassword" type={type} placeholder="Senha" />
+
+                <input
+                id="inputPassword"
+                type={type}
+                placeholder="Senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)} />
+
                 <span onClick={handleToggle}>
                   <Icon icon={icon} size="22" />
                 </span>
@@ -76,9 +168,7 @@ export default function Login() {
           </div>
           <div className="containerButtons">
             <div className="containerLoginButton">
-              <Link to="/professor/produtos">
-                <button className="buttonLogin">Entrar</button>
-              </Link>
+                <button className="buttonLogin" onClick={() => handleLogin()}>Entrar</button>
             </div>
             <div className="containerAnotherOptionToLogin">
               <div className="anotherOptionText">
@@ -86,14 +176,9 @@ export default function Login() {
               </div>
             </div>
             <div className="containerGoogleLoginButton">
-              <div className="containerGoogleLogo">
-                <img
-                  className="googleLoginIcon"
-                  src="../../assets/google-logo.png"
-                />
-              </div>
+              <div id="signInDiv">
 
-              <button className="buttonGoogleLogin">Entrar com Google</button>
+              </div>
             </div>
           </div>
           <div className="containerRegister">

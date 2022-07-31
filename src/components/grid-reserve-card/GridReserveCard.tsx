@@ -6,6 +6,11 @@ import acceptIcon from '../../assets/accept.png';
 import declineIcon from '../../assets/decline.png';
 
 export default function ReserveCard() {
+
+    const teachersReserve = [
+        {}
+    ]
+
     return (
         <>
             <div className="grid-reserve-container">
@@ -70,7 +75,6 @@ export default function ReserveCard() {
                             </table>
                         </div>
                         <div className="reserved-itens">
-                            
                         </div>
                     </div>
                 </div>

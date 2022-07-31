@@ -17,46 +17,45 @@
         }
 
         .header-profile{
-            width: 20rem;
+            margin-right: 1rem;
             display: flex;  
             align-items: center;
 
             p{
                 text-align: end;
                 width: 8rem;
-                margin-right: 1rem;
                 color: white;
             }
 
             img{
                 width: 2.8rem;
-                margin-right: 2rem;
+                margin-left: 0.8rem;
             }
 
-            .notification-icon{
-                width: 2.4rem;
-                height: 2.4rem;
+            // .notification-icon{
+            //     width: 2.4rem;
+            //     height: 2.4rem;
 
-                margin-right: 0.8rem;
+            //     margin-left: 0.8rem;
                 
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            //     display: flex;
+            //     justify-content: center;
+            //     align-items: center;
 
-                background-color: rgb(217,217,215,0.5);
-                border-radius: 360px;
+            //     background-color: rgb(217,217,215,0.5);
+            //     border-radius: 360px;
 
-                i{
-                    font-size: 1.2rem;
-                    color: white;
-                }
-            }
+            //     i{
+            //         font-size: 1.2rem;
+            //         color: white;
+            //     }
+            // }
 
             .configuration-icon{
                 width: 2.4rem;
                 height: 2.4rem;
 
-                margin-right: 0.8rem;
+                margin-left: 1rem;
                 
                 display: flex;
                 justify-content: center;

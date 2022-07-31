@@ -3,33 +3,17 @@ import "./styles.scss";
 import gradeLayout from "../../../assets/gradeLayout.png";
 import listLayout from "../../../assets/list.png";
 
+
 import ProductCardTeacher from "../../../components/product-card-teacher/productCardTeacher";
 import ListProductCardTeacher from "../../../components/list-product-card-teacher/ListProductCardTeacher";
 import { useState } from "react";
 
 export default function TeacherHome() {
   const [listFormatClicked, setListFormatClicked] = useState(false);
-  const [iconList, setIconList] = useState(listLayout);
-
-  const listFormat = () => {
+  const [today, setToday] = useState(new Date());
+  const listFormat = () => { 
     return (
       <>
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
         <ListProductCardTeacher />
       </>
     );
@@ -39,26 +23,6 @@ export default function TeacherHome() {
     return (
       <>
         <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
       </>
     );
   };
@@ -67,9 +31,17 @@ export default function TeacherHome() {
     <div className="teacherHomePage">
       <header>
         <div className="containerHeaderTeacher">
-          <div className="containerProductsTitle">
-            <div className="productTitle">
-              <h1 className="h1Produtos">Produtos</h1>
+          <div className="page-title">
+
+            <div className="containerProductsTitle">
+              <div className="productTitle">
+                <h1 className="h1Produtos">Produtos</h1>
+              </div>
+            </div>
+            <div className="todays-date">
+              <p>
+                Hoje, {today.toLocaleDateString()}
+              </p>
             </div>
           </div>
           <div className="containerSearchInput">
@@ -98,6 +70,7 @@ export default function TeacherHome() {
                   placeholder="Pesquise por produtos"
                   type="text"
                 />
+                {/* <Filter /> */}
                 <button className="reset" type="reset">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -126,13 +99,13 @@ export default function TeacherHome() {
               <div className="ballIcon">
                 <img
                   className="iconGrade"
-                  src={listLayout}
+                  src={listFormatClicked ? gradeLayout : listLayout}
                   onClick={() => setListFormatClicked(!listFormatClicked)}
                 />
               </div>
             </div>
           </div>
-          <div className="containerCard">
+          <div className={listFormatClicked ? "containerListCards" : "containerGridCards"}>
             {listFormatClicked ? listFormat() : gridFormat()}
           </div>
         </div>
