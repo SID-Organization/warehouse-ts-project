@@ -10,26 +10,10 @@ import { useState } from "react";
 
 export default function TeacherHome() {
   const [listFormatClicked, setListFormatClicked] = useState(false);
-
-  const listFormat = () => {
+  const [today, setToday] = useState(new Date());
+  const listFormat = () => { 
     return (
       <>
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
-        <ListProductCardTeacher />
         <ListProductCardTeacher />
       </>
     );
@@ -39,26 +23,6 @@ export default function TeacherHome() {
     return (
       <>
         <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
-        <ProductCardTeacher />
       </>
     );
   };
@@ -67,9 +31,17 @@ export default function TeacherHome() {
     <div className="teacherHomePage">
       <header>
         <div className="containerHeaderTeacher">
-          <div className="containerProductsTitle">
-            <div className="productTitle">
-              <h1 className="h1Produtos">Produtos</h1>
+          <div className="page-title">
+
+            <div className="containerProductsTitle">
+              <div className="productTitle">
+                <h1 className="h1Produtos">Produtos</h1>
+              </div>
+            </div>
+            <div className="todays-date">
+              <p>
+                Hoje, {today.toLocaleDateString()}
+              </p>
             </div>
           </div>
           <div className="containerSearchInput">
@@ -127,7 +99,7 @@ export default function TeacherHome() {
               <div className="ballIcon">
                 <img
                   className="iconGrade"
-                  src={listFormatClicked ? gradeLayout : listLayout }
+                  src={listFormatClicked ? gradeLayout : listLayout}
                   onClick={() => setListFormatClicked(!listFormatClicked)}
                 />
               </div>
