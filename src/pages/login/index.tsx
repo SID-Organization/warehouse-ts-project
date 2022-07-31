@@ -48,9 +48,16 @@ export default function Login() {
     }
   ]
 
-  function handleCallBackResponse(response: { credential: string }) {
+  const handleGoogleLogin = (userObj: any) => {
+    localStorage.setItem("user", JSON.stringify(userObj))
+    navigateTo("/professor/produtos", { replace: true });
+    window.location.reload();
+  }
+
+  const handleCallBackResponse = (response: { credential: string }) => {
     console.log("JWT response: ", response.credential);
     const userObject = jwtDecode(response.credential);
+    userObject ? handleGoogleLogin(userObject) : null;
     console.log(userObject);
   }
 
@@ -70,6 +77,7 @@ export default function Login() {
 
 
   useEffect(() => {
+    localStorage.clear();
     handleIconChange();
   }, [type]);
 
@@ -89,8 +97,8 @@ export default function Login() {
     const user = usersList.find(user => user.email === email && user.password === password);
     if (user) {
       localStorage.setItem("user", JSON.stringify(user));
-      
-      
+
+
       if (user.accessType === "admin") {
         localStorage.setItem("adminUser", "true");
         navigateTo("/admin/home", { replace: true });
@@ -103,7 +111,7 @@ export default function Login() {
         localStorage.setItem("teacherUser", "true");
         navigateTo("/professor/produtos", { replace: true });
       }
-      
+
       window.location.reload();
 
     } else {
@@ -149,11 +157,17 @@ export default function Login() {
                 <img className="loginIcon" src={padlock} />
 
                 <input
-                id="inputPassword"
-                type={type}
-                placeholder="Senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)} />
+                  id="inputPassword"
+                  type={type}
+                  placeholder="Senha"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  onKeyDownCapture={(e) => {
+                    if (e.key === "Enter") {
+                      handleLogin();
+                    }
+                  }}
+                />
 
                 <span onClick={handleToggle}>
                   <Icon icon={icon} size="22" />
@@ -168,7 +182,7 @@ export default function Login() {
           </div>
           <div className="containerButtons">
             <div className="containerLoginButton">
-                <button className="buttonLogin" onClick={() => handleLogin()}>Entrar</button>
+              <button className="buttonLogin" onClick={() => handleLogin()}>Entrar</button>
             </div>
             <div className="containerAnotherOptionToLogin">
               <div className="anotherOptionText">

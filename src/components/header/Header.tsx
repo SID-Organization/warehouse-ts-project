@@ -7,12 +7,11 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
     const navigateTo = useNavigate();
+    const currentUser = JSON.parse(localStorage.getItem('user')!);
+    console.log(currentUser);
 
     const handleLogOff = () => {
-        localStorage.removeItem('user');
-        localStorage.removeItem('attendantUser');
-        localStorage.removeItem('teacherUser');
-        localStorage.removeItem('adminUser');
+        localStorage.clear();
         navigateTo('/login', { replace: true });
         window.location.reload();
     }
@@ -26,8 +25,8 @@ export default function Header() {
                     </div>
                     <p onClick={() => {handleLogOff()}} style={{cursor: 'pointer'}}>X</p>
                     <div className="header-profile">
-                        <p>Nome do usuário</p>
-                        <img src={avatar} alt="profile-pic" />
+                        <p>{currentUser.given_name ?? "Nome do usuário"} {currentUser.family_name ?? ''}</p>
+                        <img src={currentUser.picture.toString() ?? avatar} alt="profile-pic" />
                         {/* <div className='notification-icon'>
                             <i className="fas fa-bell"></i>
                         </div> */}
