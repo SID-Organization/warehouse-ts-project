@@ -10,7 +10,9 @@ import {
 import "./index.css";
 
 import Header from "./components/header/Header";
+import TeacherProducts from "./pages/teacher/products";
 import TeacherHome from "./pages/teacher/home";
+import TeacherNewReserve from "./pages/teacher/new-reserve";
 
 import AttendantHome from './pages/attendant/home';
 import AttendantReserves from './pages/attendant/reserves';
@@ -23,7 +25,9 @@ import calendar from './assets/calendar.png';
 import clock from './assets/clock.png';
 import home from './assets/home.png';
 import product from './assets/product.png';
-
+import plus from './assets/plus.png';
+import produtosIcon from './assets/produtosIcon.png';
+import historic from './assets/historic.png';
 
 export default function App() {
   const [user, setUser] = useState(localStorage.getItem("user"));
@@ -50,8 +54,9 @@ export default function App() {
                   ] :
 
                     [
-                      { to: '/professor/home', img: home, text: 'Home' },
-                      { to: '/professor/produtos', img: product, text: 'Produtos' },
+                      { to: '/professor/home', img: home, text: 'Suas reservas'},
+                      { to: '/professor/produtos', img: produtosIcon, text: 'Produtos' },
+                      { to: '/professor/nova-reserva', img: plus, text: 'Nova reserva'},
                     ]
               } />
             </>
@@ -76,7 +81,10 @@ export default function App() {
               <Route path='/atendente/home' element={<AttendantHome />} />
               <Route path='/atendente/reservas' element={<AttendantReserves />} />
 
-              <Route path='/professor/produtos' element={<TeacherHome />} />
+              <Route path='/professor/produtos' element={<TeacherProducts />} />
+              <Route path='/professor/home' element={<TeacherHome />} />
+              <Route path='/professor/nova-reserva' element={<TeacherNewReserve />} />
+
 
             </Routes>
           </div>

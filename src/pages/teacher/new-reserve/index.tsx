@@ -8,7 +8,7 @@ import ProductCardTeacher from "../../../components/product-card-teacher/product
 import ListProductCardTeacher from "../../../components/list-product-card-teacher/ListProductCardTeacher";
 import { useState } from "react";
 
-export default function TeacherHome() {
+export default function TeacherNewReserve() {
   const [listFormatClicked, setListFormatClicked] = useState(false);
   const [today, setToday] = useState(new Date());
   const listFormat = () => { 
@@ -28,14 +28,14 @@ export default function TeacherHome() {
   };
 
   return (
-    <div className="teacherHomePage">
+    <div className="teacherNewReserve">
       <header>
         <div className="containerHeaderTeacher">
           <div className="page-title">
 
             <div className="containerProductsTitle">
               <div className="productTitle">
-                <h1 className="h1Produtos">Suas reservas</h1>
+                <h1 className="h1Produtos">Nova reserva</h1>
               </div>
             </div>
             <div className="todays-date">
