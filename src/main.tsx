@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 import Header from "./components/header/Header";
-import TeacherHome from "./pages/teacher/home";
+import TeacherProducts from "./pages/teacher/products";
 
 import AttendantHome from "./pages/attendant/home";
 

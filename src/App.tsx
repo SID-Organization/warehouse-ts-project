@@ -10,8 +10,9 @@ import {
 import "./index.css";
 
 import Header from "./components/header/Header";
+import TeacherProducts from "./pages/teacher/products";
 import TeacherHome from "./pages/teacher/home";
-import NewReserve from "./pages/teacher/new-reserve";
+import TeacherNewReserve from "./pages/teacher/new-reserve";
 
 import AttendantHome from "./pages/attendant/home";
 import AttendantReserves from "./pages/attendant/reserves";
@@ -25,6 +26,9 @@ import clock from "./assets/clock.png";
 import home from "./assets/home.png";
 import product from "./assets/product.png";
 import plus from "./assets/plus.png";
+import plus from "./assets/plus.png";
+import produtosIcon from "./assets/produtosIcon.png";
+import historic from "./assets/historic.png";
 
 export default function App() {
   const [user, setUser] = useState(localStorage.getItem("user"));
@@ -57,10 +61,14 @@ export default function App() {
                         },
                       ]
                     : [
-                        { to: "/professor/home", img: home, text: "Home" },
+                        {
+                          to: "/professor/home",
+                          img: home,
+                          text: "Suas reservas",
+                        },
                         {
                           to: "/professor/produtos",
-                          img: product,
+                          img: produtosIcon,
                           text: "Produtos",
                         },
                         {
@@ -107,6 +115,13 @@ export default function App() {
               <Route
                 path="/atendente/reservas"
                 element={<AttendantReserves />}
+              />
+
+              <Route path="/professor/produtos" element={<TeacherProducts />} />
+              <Route path="/professor/home" element={<TeacherHome />} />
+              <Route
+                path="/professor/nova-reserva"
+                element={<TeacherNewReserve />}
               />
 
               <Route path="/professor/produtos" element={<TeacherHome />} />
