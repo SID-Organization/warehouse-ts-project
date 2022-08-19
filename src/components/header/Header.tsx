@@ -26,7 +26,7 @@ export default function Header() {
                     <p onClick={() => {handleLogOff()}} style={{cursor: 'pointer'}}>X</p>
                     <div className="header-profile">
                         <p>{currentUser.given_name ?? "Nome do usuário"} {currentUser.family_name ?? ''}</p>
-                        <img src={currentUser.picture.toString() ?? avatar} alt="profile-pic" />
+                        <img src={currentUser.picture ?? avatar} alt="profile-pic" />
                         {/* <div className='notification-icon'>
                             <i className="fas fa-bell"></i>
                         </div> */}
