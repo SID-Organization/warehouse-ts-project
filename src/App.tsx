@@ -26,7 +26,6 @@ import clock from "./assets/clock.png";
 import home from "./assets/home.png";
 import product from "./assets/product.png";
 import plus from "./assets/plus.png";
-import plus from "./assets/plus.png";
 import produtosIcon from "./assets/produtosIcon.png";
 import historic from "./assets/historic.png";
 
@@ -125,7 +124,10 @@ export default function App() {
               />
 
               <Route path="/professor/produtos" element={<TeacherHome />} />
-              <Route path="/professor/nova-reserva" element={<NewReserve />} />
+              <Route
+                path="/professor/nova-reserva"
+                element={<TeacherNewReserve />}
+              />
             </Routes>
           </div>
         </Router>

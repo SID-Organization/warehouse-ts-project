@@ -1,10 +1,8 @@
 .teacherNewReserve {
-
   .page-title {
     .todays-date {
       margin-top: 1rem;
       color: #707070;
-
     }
   }
 
@@ -98,7 +96,7 @@
     visibility: hidden;
   }
 
-  input:not(:placeholder-shown)~.reset {
+  input:not(:placeholder-shown) ~ .reset {
     opacity: 1;
     visibility: visible;
   }
@@ -119,5 +117,175 @@
     display: flex;
     flex-direction: column;
   }
+  .containerReserves {
+    justify-content: center;
+    align-items: center;
 
+    .reserveHeader {
+      color: #0047b5;
+      display: flex;
+      justify-content: start;
+
+      .containerProductTitle {
+        font-weight: bold;
+
+        h1 {
+          font-size: 23px;
+        }
+      }
+
+      .containerQtyProducts {
+        span {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .reserveMain {
+      border-top: 1px solid #0047b5;
+      border-right: 1px solid #0047b5;
+      border-bottom: 1px solid #0047b5;
+      width: 930px;
+      height: 460px;
+
+      .containerSubHeader {
+        color: #0047b5;
+        border-bottom: 1px solid #0047b5;
+
+        .containerStuff {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
+
+        .containerName {
+          font-size: 10px;
+        }
+
+        .containerQty {
+          font-size: 10px;
+        }
+      }
+      .containerSelectAll {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        margin-right: 20px;
+
+        .containerText {
+          color: #0047b5;
+          margin-top: 6px;
+          h1 {
+            font-size: 16px;
+          }
+        }
+        .containerInput {
+          margin-left: 7px;
+          label {
+            display: block;
+            width: 11px;
+            height: 11px;
+            cursor: pointer;
+          }
+
+          input[type="checkbox"] {
+            position: absolute;
+            transform: scale(0);
+          }
+
+          input[type="checkbox"]:checked ~ .checkbox {
+            transform: rotate(45deg);
+            width: 4px;
+            margin-left: 5px;
+            border-color: #0047b5;
+            border-width: 3px;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-radius: 0;
+          }
+
+          .checkbox {
+            display: block;
+            width: inherit;
+            height: inherit;
+            border: solid 3px #a8a8a8;
+            border-radius: 6px;
+            transition: all 0.375s;
+          }
+        }
+      }
+    }
+  }
+
+  .containerComponents {
+    display: flex;
+    align-items: center;
+
+    .containerWithdrawalDate {
+      font-size: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 11px;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .containerInputDate {
+      input {
+        color: white;
+        border: solid 1px white;
+        background-color: transparent;
+        border-radius: 5px;
+        height: 16px;
+        width: 109px;
+        padding: 10px;
+        color-scheme: dark;
+      }
+    }
+
+    .containerIconCalendar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .calendarIcon {
+        height: 21px;
+      }
+    }
+
+    .containerConfirmReserve {
+      width: 208px;
+      height: 462px;
+      margin-top: 29px;
+      background-color: #003282;
+      border-radius: 0px 10px 10px 0px;
+    }
+
+    .containerWithdrawalTime {
+      display: flex;
+      justify-content: space-around;
+      padding-right: 30px;
+    }
+  }
+  .containerDottedLine {
+    border: none;
+    border-top: 2px dotted #fff;
+    color: #fff;
+    background-color: #003282;
+    height: 10px;
+    width: 100%;
+    margin-top: 15px;
+  }
+  .containerLine {
+    border: none;
+    background-color: white;
+    height: 2px;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .containerButton {
+    button {
+    }
+  }
 }
