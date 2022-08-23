@@ -7,26 +7,11 @@ import clock from "../../../assets/clock.png";
 
 import ProductCardTeacher from "../../../components/product-card-teacher/productCardTeacher";
 import ListProductCardTeacher from "../../../components/list-product-card-teacher/ListProductCardTeacher";
+import CardContainerNewReserve from "../../../components/cardContainerNewReserve/CardContainerNewReserve";
 import { useState } from "react";
 
 export default function TeacherNewReserve() {
-  const [listFormatClicked, setListFormatClicked] = useState(false);
   const [today, setToday] = useState(new Date());
-  const listFormat = () => {
-    return (
-      <>
-        <ListProductCardTeacher />
-      </>
-    );
-  };
-
-  const gridFormat = () => {
-    return (
-      <>
-        <ProductCardTeacher />
-      </>
-    );
-  };
 
   return (
     <div className="teacherNewReserve">
@@ -76,6 +61,11 @@ export default function TeacherNewReserve() {
                     <span className="checkbox"></span>
                   </label>
                 </div>
+              </div>
+              <div className="containerProductsCard">
+                <CardContainerNewReserve />
+                <CardContainerNewReserve />
+                <CardContainerNewReserve />
               </div>
             </div>
           </div>

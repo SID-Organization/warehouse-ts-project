@@ -3,7 +3,6 @@ import "./styles.scss";
 import gradeLayout from "../../../assets/gradeLayout.png";
 import listLayout from "../../../assets/list.png";
 
-
 import ProductCardTeacher from "../../../components/product-card-teacher/productCardTeacher";
 import ListProductCardTeacher from "../../../components/list-product-card-teacher/ListProductCardTeacher";
 import { useState } from "react";
@@ -11,7 +10,7 @@ import { useState } from "react";
 export default function TeacherHome() {
   const [listFormatClicked, setListFormatClicked] = useState(false);
   const [today, setToday] = useState(new Date());
-  const listFormat = () => { 
+  const listFormat = () => {
     return (
       <>
         <ListProductCardTeacher />
@@ -32,16 +31,13 @@ export default function TeacherHome() {
       <header>
         <div className="containerHeaderTeacher">
           <div className="page-title">
-
             <div className="containerProductsTitle">
               <div className="productTitle">
                 <h1 className="h1Produtos">Suas reservas</h1>
               </div>
             </div>
             <div className="todays-date">
-              <p>
-                Hoje, {today.toLocaleDateString()}
-              </p>
+              <p>Hoje, {today.toLocaleDateString()}</p>
             </div>
           </div>
           {/* <div className="containerSearchInput">
@@ -92,9 +88,7 @@ export default function TeacherHome() {
           </div> */}
         </div>
       </header>
-      <main>
-      
-      </main>
+      <main></main>
     </div>
   );
 }
