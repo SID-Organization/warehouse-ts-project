@@ -1,0 +1,271 @@
+.ProfilePage {
+  .containerProfileTitle {
+    border-bottom: 1px solid #0047b5;
+    width: 7rem;
+
+    .profileTitle {
+      span {
+        font-size: 25px;
+        color: #0047b5;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .containerDivisionLine {
+    border-bottom: 1px solid #0047b5;
+    width: 100%;
+    height: 5rem;
+  }
+
+  .containersContent {
+    display: flex;
+    column-gap: 20%;
+    .containerContentLeft {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+
+      .containerTextSpecifications {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+
+        span {
+          font-size: 23px;
+          font-weight: bold;
+        }
+
+        h2 {
+          font-size: 18px;
+          color: #a9a9a9;
+        }
+      }
+
+      .containerButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+          width: 100%;
+          height: 40px;
+          border: none;
+          border-radius: 5px;
+          background-color: #0047b5;
+          color: #fff;
+          font-size: 18px;
+          cursor: pointer;
+          transition: 0.2s;
+
+          &:hover {
+            background-color: #003282;
+          }
+        }
+      }
+    }
+
+    .rightSide {
+      color: #0047b5;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .containerInputs {
+        display: grid;
+        gap: 15px;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+
+        .containerName {
+          display: grid;
+          gap: 3px;
+
+          input {
+            width: 215px;
+            height: 30px;
+            outline: none;
+            border: #0047b5 1px solid;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+        }
+
+        .containerEmailI {
+          display: grid;
+          gap: 3px;
+
+          input {
+            width: 215px;
+            height: 30px;
+            outline: none;
+            border: #0047b5 1px solid;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+        }
+
+        .containerPasswd {
+          display: grid;
+          gap: 3px;
+
+          input {
+            width: 215px;
+            height: 30px;
+            outline: none;
+            border: #0047b5 1px solid;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+        }
+
+        .containerArea {
+          display: grid;
+          gap: 3px;
+
+          input {
+            width: 215px;
+            height: 30px;
+            outline: none;
+            border: #0047b5 1px solid;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+        }
+
+        .containerSurname {
+          display: grid;
+          gap: 3px;
+
+          input {
+            width: 215px;
+            height: 30px;
+            outline: none;
+            border: #0047b5 1px solid;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+        }
+      }
+
+      h1 {
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+      }
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .containerContentLeft {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        .containerTextSpecifications {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 15px;
+          h1 {
+            font-size: 20px;
+            font-weight: bold;
+          }
+          h2 {
+            font-size: 18px;
+            color: #a9a9a9;
+          }
+        }
+        .containerButton {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 15px;
+          button {
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0047b5;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+              background-color: #003282;
+            }
+          }
+        }
+      }
+      .rightSide {
+        color: #0047b5;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .containerInputs {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 15px;
+          .containerName {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+          }
+          .containerEmail {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+          }
+          .containerPasswd {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+          }
+          .containerArea {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+          }
+          .containerSurname {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+          }
+        }
+      }
+    }
+  }
+}

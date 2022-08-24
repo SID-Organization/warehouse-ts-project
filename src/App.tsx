@@ -9,6 +9,8 @@ import {
 
 import "./index.css";
 
+import Profile from "./pages/profile";
+
 import Header from "./components/header/Header";
 import TeacherProducts from "./pages/teacher/products";
 import TeacherHome from "./pages/teacher/home";
@@ -109,7 +111,7 @@ export default function App() {
 
               <Route path="/login" element={<Login />} />
               <Route path="/cadastro" element={<Register />} />
-
+              <Route path="/profile" element={<Profile />} />
               <Route path="/atendente/home" element={<AttendantHome />} />
               <Route
                 path="/atendente/reservas"
