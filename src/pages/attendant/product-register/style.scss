@@ -1,0 +1,252 @@
+.fileAddContainer {
+    background-color: #d0d0d0;
+  
+    .header {
+      width: 100%;
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0047b5;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 200;
+    }
+  
+    .body{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 27rem;
+      height: 26rem;
+    }
+  
+    .imgContainer{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 7rem;
+    }
+  
+    .pushText{
+      font-size: 1.2rem;
+      color: #363636;
+      margin-bottom: 14px;
+    }
+  
+    .orDiv{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+  
+    .downloadIMG{
+      width: 21%;
+    }
+  
+    .orText{
+      font-size: 1rem;
+      color: #363636;
+    }
+  
+    .buttonSelectFile{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 14rem;
+      height: 2.4rem;
+      background-color: #0047b5;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.1s ease-in-out;
+    }
+  
+    .buttonSelectFile:hover{
+      background-color: #175abe;
+    }
+  
+    .buttonSelectFile-text{
+      font-size: 1.2rem;
+      color: white;
+    }
+  
+    .bottomText{
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+    }
+  }
+  .bodyContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -0.5rem;
+  
+    .formsContainer {
+        width: 80%;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #d0d0d0;
+        border-radius: 0.5rem;
+        row-gap: 2rem;
+    }
+  
+    .part1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+  
+    .titleText {
+      font-size: 1.5rem;
+      color: #193969;
+    }
+  
+    .part2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+  
+    .containerTwoItens-part2 {
+      width: 80%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .nameText {
+      align-self: flex-start;
+      font-size: 1rem;
+      color: #363636;
+      margin-bottom: 0.1rem;
+    }
+  
+    .nameInput {
+      justify-self: center;
+      width: 100%;
+      height: 2rem;
+      border: none;
+      border-radius: 0.3rem;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      outline: none;
+      padding: 1rem;
+    }
+  
+    .quantityInput {
+      justify-self: center;
+      width: 100%;
+      height: 2rem;
+      border: none;
+      border-radius: 0.3rem;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      outline: none;
+      padding: 1rem;
+    }
+  
+    .part4 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+  
+    .classproduct {
+      justify-self: center;
+      width: 100%;
+      height: 2rem;
+      border: none;
+      border-radius: 0.3rem;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      outline: none;
+      padding: 1rem;
+      cursor: pointer;
+    }
+  
+    .CaracInput {
+      justify-self: center;
+      width: 100%;
+      height: 5rem;
+      border: none;
+      border-radius: 0.3rem;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      outline: none;
+      padding: 1rem;
+    }
+  
+    .part3 {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+        margin-left: -2rem;
+    }
+  
+    .part5 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+  
+    .part6 {
+      margin-bottom: 2rem;
+    }
+  
+    .openModal {
+      border: none;
+      width: 10rem;
+      height: 2rem;
+      background-color: #0047b5;
+      border-radius: 0.3rem;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+  
+    .openModal:hover {
+      background-color: #1d59b3;
+      color: white;
+    }
+  
+    .addimg-buttonContainer {
+      width: 10rem;
+      height: 2.6rem;
+      background: #193969;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      margin-left: 3rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .fileaddattendant {
+      visibility: hidden;
+    }
+  
+    .addimg-buttonContainer:hover {
+      background: #315386;
+    }
+  
+    .buttonAddImg-text {
+      font-size: 1rem;
+      font-weight: 200;
+    }
+  
+    
+  
+  }

@@ -14,6 +14,7 @@ import TeacherHome from "./pages/teacher/home";
 
 import AttendantHome from './pages/attendant/home';
 import AttendantReserves from './pages/attendant/reserves';
+import AttendantProductRegister from './pages/attendant/product-register'
 import SideBar from './components/side-bar';
 
 import Login from "./pages/login";
@@ -46,7 +47,8 @@ export default function App() {
 
                   attendantUser ? [
                     { to: '/atendente/home', img: home, text: 'Home' },
-                    { to: '/atendente/reservas', img: calendar, text: 'Reservas' }
+                    { to: '/atendente/reservas', img: calendar, text: 'Reservas' },
+                    { to: '/atendente/registro-produtos', img: calendar, text: 'Registro de Produtos' }
                   ] :
 
                     [
@@ -75,6 +77,7 @@ export default function App() {
 
               <Route path='/atendente/home' element={<AttendantHome />} />
               <Route path='/atendente/reservas' element={<AttendantReserves />} />
+              <Route path='/atendente/registro-produtos' element={<AttendantProductRegister />} />
 
               <Route path='/professor/produtos' element={<TeacherHome />} />
 
