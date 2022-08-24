@@ -15,6 +15,7 @@ import TeacherHome from "./pages/teacher/home";
 import AttendantHome from './pages/attendant/home';
 import AttendantReserves from './pages/attendant/reserves';
 import AttendantProductRegister from './pages/attendant/product-register'
+import AtendentReservationScreen from './pages/attendant/attendant-reservation-screen'
 import SideBar from './components/side-bar';
 
 import Login from "./pages/login";
@@ -78,6 +79,8 @@ export default function App() {
               <Route path='/atendente/home' element={<AttendantHome />} />
               <Route path='/atendente/reservas' element={<AttendantReserves />} />
               <Route path='/atendente/registro-produtos' element={<AttendantProductRegister />} />
+              <Route path='/atendente/reservas/tela' element={<AtendentReservationScreen />} />
+
 
               <Route path='/professor/produtos' element={<TeacherHome />} />
 
