@@ -37,7 +37,7 @@ export default function ProductCardTeacher() {
             <div className="containerQty">
               <div className="containerH1Quantidade">
                 <h1 className="h1Qty">Quantidade</h1>
-                <input className="inputQty" type="number" />
+                <input className="inputQty" type="text" />
               </div>
             </div>
           </div>

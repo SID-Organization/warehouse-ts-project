@@ -3,7 +3,6 @@ import "./styles.scss";
 import gradeLayout from "../../../assets/gradeLayout.png";
 import listLayout from "../../../assets/list.png";
 
-
 import ProductCardTeacher from "../../../components/product-card-teacher/productCardTeacher";
 import ListProductCardTeacher from "../../../components/list-product-card-teacher/ListProductCardTeacher";
 import { useState } from "react";
@@ -11,9 +10,26 @@ import { useState } from "react";
 export default function TeacherProducts() {
   const [listFormatClicked, setListFormatClicked] = useState(false);
   const [today, setToday] = useState(new Date());
-  const listFormat = () => { 
+  const listFormat = () => {
     return (
       <>
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
+        <ListProductCardTeacher />
         <ListProductCardTeacher />
       </>
     );
@@ -22,6 +38,23 @@ export default function TeacherProducts() {
   const gridFormat = () => {
     return (
       <>
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
+        <ProductCardTeacher />
         <ProductCardTeacher />
       </>
     );
@@ -32,16 +65,13 @@ export default function TeacherProducts() {
       <header>
         <div className="containerHeaderTeacher">
           <div className="page-title">
-
             <div className="containerProductsTitle">
               <div className="productTitle">
                 <h1 className="h1Produtos">Produtos</h1>
               </div>
             </div>
             <div className="todays-date">
-              <p>
-                Hoje, {today.toLocaleDateString()}
-              </p>
+              <p>Hoje, {today.toLocaleDateString()}</p>
             </div>
           </div>
           <div className="containerSearchInput">
@@ -105,7 +135,11 @@ export default function TeacherProducts() {
               </div>
             </div>
           </div>
-          <div className={listFormatClicked ? "containerListCards" : "containerGridCards"}>
+          <div
+            className={
+              listFormatClicked ? "containerListCards" : "containerGridCards"
+            }
+          >
             {listFormatClicked ? listFormat() : gridFormat()}
           </div>
         </div>
