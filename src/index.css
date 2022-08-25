@@ -3,6 +3,10 @@
   -secundary-color: #003282;
 }  */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
   margin: 0;
   padding: 0;

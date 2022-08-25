@@ -63,6 +63,7 @@ function AttendantProductRegister() {
                 <input type="number" name="" id="" className="quantityInput" />
               </div>
               <div className="containerTwoItens-part3">
+                
                 <h2 className="nameText">Classificação</h2>
                 <input
                   name="classproduct"
@@ -104,7 +105,7 @@ function AttendantProductRegister() {
                   </div>
                   <div className="body">
                     <div className="imgContainer">
-                        {/* <Attendantregister></Attendantregister> */}
+                        <Attendantregister></Attendantregister>
                     </div>
                     <div className="body-textContainer">
                       <h1 className="pushText">Arraste um arquivo</h1>
