@@ -1,5 +1,7 @@
 import React from "react";
 
+import hammer from "../../../assets/hammer.png";
+
 import "./styles.scss";
 
 export default function ReserveHistoric() {
@@ -24,6 +26,28 @@ export default function ReserveHistoric() {
             <h1>Reserva confirmada em: 13/06/2022, 16:20</h1>
             <div className="ball"></div>
           </div>
+        </div>
+      </div>
+      <div className="containerTable">
+        <h1>Produtos</h1>
+        <div className="containerTopics">
+          <h1>nome</h1>
+          <h1>tipo</h1>
+          <h1>opção</h1>
+          <h1>quantidade</h1>
+          <h1>estoque</h1>
+          <h1>situação</h1>
+        </div>
+        <div className="containerReservedProducts">
+          <div className="containerIMG">
+            <img src={hammer} alt="hammer" />
+          </div>
+          <h1 className="limitText">Martelo caso o nome seja maior</h1>
+          <h1 className="manual">Manual</h1>
+          <h1 className="retornavel">Retornável</h1>
+          <h1 className="qty">2</h1>
+          <h1 className="estoque">42</h1>
+          <h1 className="confirmed">confirmado</h1>
         </div>
       </div>
     </div>
