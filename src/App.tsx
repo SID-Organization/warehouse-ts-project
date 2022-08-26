@@ -15,6 +15,7 @@ import Header from "./components/header/Header";
 import TeacherProducts from "./pages/teacher/products";
 import TeacherHome from "./pages/teacher/home";
 import TeacherNewReserve from "./pages/teacher/new-reserve";
+import ReserveHistoric from "./pages/teacher/reserve-historic";
 
 import AttendantHome from "./pages/attendant/home";
 import AttendantReserves from "./pages/attendant/reserves";
@@ -129,6 +130,10 @@ export default function App() {
               <Route
                 path="/professor/nova-reserva"
                 element={<TeacherNewReserve />}
+              />
+              <Route
+                path="/professor/historico-reservas"
+                element={<ReserveHistoric />}
               />
             </Routes>
           </div>

@@ -1,0 +1,75 @@
+.reserveHistoricPage {
+  .containerTitleHistoric {
+    margin-bottom: 3rem;
+    h1 {
+      border-bottom: 1px solid #0047b5;
+      width: 16rem;
+      color: #0047b5;
+      font-weight: bold;
+      font-size: 25px;
+    }
+  }
+
+  .containerTitleDetails {
+    margin-bottom: 5rem;
+    h1 {
+      width: 16rem;
+      color: #0047b5;
+      font-weight: bold;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+  }
+
+  .containerInformationAndDetails {
+    display: flex;
+    column-gap: 5rem;
+
+    .leftContainer {
+      display: grid;
+      align-items: center;
+      gap: 5px;
+
+      .informations {
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      h1 {
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+    }
+
+    .rightContainer {
+      display: grid;
+      align-items: center;
+      height: 38px;
+
+      .reserveDetails {
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      h1 {
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .containerBall {
+        display: flex;
+        column-gap: 7px;
+        align-items: center;
+
+        .ball {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #00eb7e;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
