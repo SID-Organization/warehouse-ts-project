@@ -11,7 +11,7 @@ import "./index.css";
 
 import Profile from "./pages/profile";
 
-import Header from "./components/header/Header";
+import Header from "./components/Header/Header";
 import TeacherProducts from "./pages/teacher/products";
 import TeacherHome from "./pages/teacher/home";
 import TeacherNewReserve from "./pages/teacher/new-reserve";
