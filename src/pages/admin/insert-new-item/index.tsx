@@ -69,7 +69,7 @@ export default function AdminInsertNewItem() {
                 <input type="text" name="nome" value={name} onChange={(e) => {setName(e.target.value)}} className="input-form" />
               </div>
             </div>
-            <div className="div-container-li">
+            {/* <div className="div-container-li">
               <div>
                 <label htmlFor="qtdEstoque" className="label-form">
                   Quantidade em estoque
@@ -78,7 +78,7 @@ export default function AdminInsertNewItem() {
               <div className="div-input-form">
                 <input type="number" name="qtdEstoque" value={storageQty} onChange={(e: any) => {setStorageQty(e.target.value)}} className="input-form" />
               </div>
-            </div>
+            </div> */}
             <div className="div-container-li">
               <div>
                 <label htmlFor="caracteristica" className="label-form">
