@@ -25,13 +25,13 @@ export default function Register() {
       toast.success("Registro solicitado com sucesso!", {
         style: {
           background: "#0047B5",
-          color: "#fff",
+          color: "#fff"
         },
         iconTheme: {
           primary: "#fff",
-          secondary: "#0047B5",
+          secondary: "#0047B5"
         },
-        duration: 3500,
+        duration: 3500
       });
     }
   }
@@ -57,7 +57,7 @@ export default function Register() {
         </div>
         <Toaster position="top-right" reverseOrder={true} />
       </header>
-      <div className="image"></div>
+      <div className="image" />
       <main>
         <div className="containerLogin">
           <div className="containerBarRegister">
@@ -71,7 +71,7 @@ export default function Register() {
                 <h1 className="registerTextBar">Registro</h1>
               </div>
             </div>
-            <div className="containerGoBack"></div>
+            <div className="containerGoBack" />
           </div>
           <div className="containerForms">
             <div className="containerCredentials">

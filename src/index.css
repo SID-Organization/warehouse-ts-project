@@ -3,18 +3,23 @@
   -secundary-color: #003282;
 }  */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-*{
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
-  transition: .05s;
-};
+  transition: 0.05s;
+}
 
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
 
-
+::-webkit-scrollbar-thumb {
+  background: #0047b5;
+  border-radius: 0.5rem;
+}

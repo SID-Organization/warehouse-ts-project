@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.div-titulo-header{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0 0 30px 0;
+}
+
+
+#txt-titulo{
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0047B5;
+}
+
+#div-line{
+    width: 8.1rem;
+    border-top: solid 2px #0047B5;
+}
+
+.div-container{
+    display: flex;
+}
+
+.file_upload{
+    cursor: pointer;
+}
+
+.div-container-li{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 1.5%;
+    width: 100%;
+    height: 13%;
+    margin-bottom: 1rem;
+}
+
+.div-label-form{
+    margin-bottom: 0.5rem;
+}
+
+.label-form{
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.div-input-form{
+    width: 22rem;
+}
+
+.input-form{
+    width: 100%;
+    height: 1.8rem;
+    border: solid 1px black;
+    border-radius: 0.2rem;
+    padding-left: 0.5rem;
+    outline: none;
+}
+
+.div-checkbox-dad{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.4rem;
+    height: 2rem;
+}
+
+.label-checkbox{
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.checkbox{
+    width: 1.6rem;
+    height: 0.87rem;
+    border: solid 1px black;
+    border-radius: 0.2rem;
+    outline: none;
+}
+
+.div-newest-child{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+
+    img {
+        width: 50px;
+    }
+}
+
+.div-upload-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 43%;
+    position: relative;
+}
+
+
+#upload-txt{
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: black;
+}
+
+
+#div-button{
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+}
+
+#button{
+    width: 8rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 0.2rem;
+    background-color: #0047B5;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    outline: none;
+}
+
+#button:hover{
+    background-color: #003C9D;
+    cursor: pointer;
+}

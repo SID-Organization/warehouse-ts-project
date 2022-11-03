@@ -1,0 +1,220 @@
+.admin-gerenc-prod{
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    #checkbox{
+        width: 20%;
+    }
+    
+    #div-separa{
+        width: 100%;
+        height: 3rem;
+    }
+
+    .div-container1{
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: self-end;
+    }
+
+    .div-container-btn{
+        width: 18rem;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .div-children{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .link{
+        text-decoration: none;
+    }
+
+    .div-button{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 14rem;
+        height: 3.4rem;
+        background-color: #193969;
+        border-radius: 0.5rem;
+    }
+    
+    #plus-logo{
+        width: 2rem;
+        height: 2rem;
+        margin: 0 0 0 0.5rem;
+    }
+
+    #txt-add-prod{
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 0 0 0 0.6rem;
+    }
+
+    .div-titulo{
+        justify-content: flex-end;
+        width: 40rem;
+        height: 3.4rem;
+    }
+
+    #titulo-txt{
+        text-align: center;
+    }
+
+    .div-container{
+        display: flex;
+        justify-content: start;
+        margin: 0 0 0 9rem;
+    }
+
+    
+    .div-filter-search{
+        width: 100vw;
+        height: min-content;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        top: 2rem;
+    }
+
+    .div-space-filter{
+        width: 4.5%;
+    }
+
+    #div-filter{
+        width: 10%;
+        height: min-content;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        background-color: #4868e6;
+        padding: 0.6rem;
+        border-radius: 5px;
+        margin: 2rem 0 0 0;
+        transition: .4s;
+        border: solid 1px transparent;
+    }
+    #div-filter:hover{
+        cursor: pointer;
+        background-color: #6679c4;
+        border: solid 1px #0830d1;
+    }
+
+    #filter{
+        width: 1.5rem;
+        height: 1.6rem;
+    }
+
+    #div-filter-txt{
+        width: 66%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+    }
+
+    #filters-number{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 21%;
+        height: 1.6rem;
+        background: white;
+        border-radius: 23rem;
+    }
+
+    #container-modal-filter{
+        width: 100vw;
+        height: max-content;
+        position: absolute;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    #div-modal-filter{
+        margin: 0.5rem 0 0 0;
+        width: 20%;
+        height: 22rem;
+        background: white;
+        border: solid 1px #d1d1d1;
+        border-radius: 2%;
+        box-shadow: 0 0 0.4em #979797
+    }
+
+    #header-modal{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header-modal-txts{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.3rem 1rem 0 1rem;
+    }
+
+    #filter-title{
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+
+    #save-title{
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #2f54eb;
+    }
+
+    #div-input-name{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.5rem 0 0.8rem 0;
+    }
+
+    #input-name{
+        width: 70%;
+        border: solid 1px #bebebe;
+        outline: none;
+        padding: 0.3rem;
+        border-radius: 0.3rem;
+    }
+
+    .div-checkboxs{
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin: 0.7rem 0 0 0;
+    }
+
+    .input-group{
+        width: 73%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.4rem 0 0 0;
+    }
+
+    .input-checkbox{
+        margin: 0 0 0.1rem 0;
+    }
+
+    .select-menu{
+        width: 49%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #number-order{
+        outline: none;
+    }
+
+}

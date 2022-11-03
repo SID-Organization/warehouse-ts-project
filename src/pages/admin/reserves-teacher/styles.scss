@@ -1,0 +1,84 @@
+.page-reserves-teacher {
+  .containerProductsTitle {
+    border-bottom: 1px solid #0047b5;
+    width: 8rem;
+  }
+
+  .h1Produtos {
+    font-size: 25px;
+    color: #0047b5;
+    font-weight: bold;
+  }
+
+  .filterReserves {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 5rem;
+    column-gap: 5rem;
+    margin-bottom: 4rem;
+    h1 {
+      font-size: 20px;
+      color: #0047b5;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        color: #0047b5;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .reserve {
+    cursor: pointer;
+    border: 2px solid black;
+    width: 50rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    transition: 0.2s;
+    &:hover {
+      border: 2px solid #0047b5;
+    }
+    .leftSideReserve {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      column-gap: 1rem;
+      margin-left: 1rem;
+      height: 100%;
+      img {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 999rem;
+      }
+      h1 {
+        font-size: 17px;
+        color: black;
+        font-weight: bold;
+      }
+    }
+
+    .retiradoSide {
+      margin-left: 3rem;
+      display: grid;
+      align-items: center;
+      .dateH1 {
+        font-size: 17px;
+        color: black;
+        font-weight: normal;
+      }
+    }
+    .returnedSide {
+      margin-left: 3rem;
+      display: grid;
+      align-items: center;
+      .dateH1 {
+        font-size: 17px;
+        color: black;
+        font-weight: normal;
+      }
+    }
+  }
+}

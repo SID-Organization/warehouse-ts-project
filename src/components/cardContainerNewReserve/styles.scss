@@ -1,0 +1,88 @@
+.containerCard {
+  .containerImgAndName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 32%;
+
+    .name {
+      h1 {
+        font-size: 18px;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 120px;
+      }
+    }
+  }
+  .containerQty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15%;
+    .qtyInput {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 10px;
+
+      .containerMinus {
+        background-color: #d9d9d9;
+        border-radius: 100%;
+        height: 25px;
+        width: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.2s;
+        &:hover {
+          background-color: rgba(180, 180, 180, 0.788);
+        }
+      }
+
+      .containerPlus {
+        background-color: #d9d9d9;
+        border-radius: 100%;
+        height: 25px;
+        width: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+          background-color: rgba(180, 180, 180, 0.788);
+        }
+      }
+
+      img {
+        width: 14px;
+        height: 12px;
+      }
+
+      .containerInput {
+        input {
+          border: black solid 2px;
+          background-color: #d9d9d9;
+          border-radius: 5px;
+          width: 3rem;
+          height: 1.5rem;
+          text-align: center;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .containerRemove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      cursor: pointer;
+    }
+  }
+}
