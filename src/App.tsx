@@ -33,6 +33,7 @@ import produtosIcon from "./assets/produtosIcon.png";
 import historic from "./assets/historic.png";
 import AdminInsertNewItem from "./pages/admin/insert-new-item";
 import AdminHome from "./pages/admin/home";
+import NewStorageSpace from "./pages/admin/new-storage-space";
 
 export default function App() {
   const [user, setUser] = useState(localStorage.getItem("user"));
@@ -48,6 +49,7 @@ export default function App() {
     return [
       { to: "/admin/home", img: home, text: "Home" },
       { to: "/admin/cadastrar-item", img: home, text: "Cadastrar item" },
+      { to: "/admin/new-storage-space", img: plus, text: "Novo espaço organizacional" },
     ];
   }
 
@@ -156,6 +158,10 @@ export default function App() {
               <Route
                 path="admin/reservas-professor"
                 element={<ReservesTeacher />}
+              />
+              <Route
+                path="admin/new-storage-space"
+                element={<NewStorageSpace />}
               />
             </Routes>
           </div>
