@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button, IconButton, Tooltip } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Fields() {
   const [fieldName, setFieldName] = useState("");
@@ -11,33 +11,50 @@ export default function Fields() {
   const [list, setList] = useState<any[]>([]);
 
   function addValues() {
-    setList([...list, { fieldName, value }]);
+    if (value !== "" && fieldName !== "") {
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].fieldName === fieldName) {
+          for (let fieldValue of list[i].values) {
+            if (fieldValue === value) {
+              alert("Campo já cadastrado");
+              return;
+            }
+          }
+          list[i].values.push(value);
+          setList([...list]);
+          setValue("");
+          return;
+        }
+      }
+      setList([...list, { fieldName, values: [value] }]);
+      setValue("");
+    } else {
+      alert("Preencha todos os campos!");
+    }
   }
 
   function getValues() {
-    return list.map((item, index) => (
-      <div>
-        <div className="listItem">
-          {item.fieldName} - {item.value}
-          <Tooltip title="Remover valor">
-            <DeleteIcon
-              onClick={() => {
-                const newList = list.filter((_, i) => i !== index);
-                setList(newList);
-              }}
-              sx={{
-                width: "1.5rem",
-                height: "1.5rem",
-                color: "#a3a3a3",
-                borderRadius: "1rem",
-                marginLeft: "1rem",
-                cursor: "pointer",
-              }}
-            />
-          </Tooltip>
-        </div>
+    return list.map((item, index) =>
+      <div className="listItem" key={index}>
+        {item.fieldName} - {item.values.join(" / ")}
+        <Tooltip title="Remover valor">
+          <DeleteIcon
+            onClick={() => {
+              const newList = list.filter((_, i) => i !== index);
+              setList(newList);
+            }}
+            sx={{
+              width: "1.5rem",
+              height: "1.5rem",
+              color: "#a3a3a3",
+              borderRadius: "1rem",
+              marginLeft: "1rem",
+              cursor: "pointer"
+            }}
+          />
+        </Tooltip>
       </div>
-    ));
+    );
   }
 
   async function sendToDatabase() {
@@ -45,21 +62,21 @@ export default function Fields() {
       nomeCampo: fieldName,
       valores: [
         {
-          valorPredefinido: list,
-        },
-      ],
+          valorPredefinido: list
+        }
+      ]
     };
 
     const response = await fetch("http://localhost:8080/almoxarifado/campos", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(data)
     })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
 
     console.log(response);
   }
@@ -82,9 +99,10 @@ export default function Fields() {
           variant="outlined"
           sx={{
             width: "30rem",
-            borderRadius: "1rem",
+            borderRadius: "1rem"
           }}
-          onChange={(e) => setFieldName(e.target.value)}
+          value={fieldName}
+          onChange={e => setFieldName(e.target.value)}
         />
         <div className="containerDefaultValue">
           <div className="defaultInput">
@@ -94,9 +112,10 @@ export default function Fields() {
               variant="outlined"
               sx={{
                 width: "30rem",
-                borderRadius: "1rem",
+                borderRadius: "1rem"
               }}
-              onChange={(e) => setValue(e.target.value)}
+              value={value}
+              onChange={e => setValue(e.target.value)}
             />
 
             <div className="icons">
@@ -109,7 +128,7 @@ export default function Fields() {
                     color: "#0047B5",
                     borderRadius: "1rem",
                     marginLeft: "1rem",
-                    cursor: "pointer",
+                    cursor: "pointer"
                   }}
                 />
               </Tooltip>
@@ -124,15 +143,17 @@ export default function Fields() {
                   backgroundColor: "#0047B5",
                   color: "#fff",
                   "&:hover": {
-                    backgroundColor: "#0047B5",
-                  },
+                    backgroundColor: "#0047B5"
+                  }
                 }}
               >
                 Cadastrar campo
               </Button>
             </div>
           </div>
-          <div>{getValues()}</div>
+          <div>
+            {getValues()}
+          </div>
         </div>
       </div>
     </div>

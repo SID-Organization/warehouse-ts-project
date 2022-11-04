@@ -51,6 +51,7 @@ export default function App() {
       { to: "/admin/home", img: home, text: "Home" },
       { to: "/admin/cadastrar-item", img: home, text: "Cadastrar item" },
       { to: "/admin/new-storage-space", img: plus, text: "Novo espaço organizacional" },
+      { to: "/admin/campos", img: plus, text: "Campos" },
     ];
   }
 
