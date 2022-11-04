@@ -1,13 +1,37 @@
-.new-storage-space-container{
-    #div-line-container{
-        margin-bottom: 50px;
-    }
+.new-storage-space-container {
+  #div-line-container {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    .fields-container{
-        height: 25rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+    #div-line {
+      width: 18rem;
     }
+  }
+  .listItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
 
+  .fields-container {
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .fieldsSelect {
+    display: flex;
+    align-items: center;
+  }
+  .waterMaster {
+    display: grid;
+  }
+
+  .defaultInput {
+    display: flex;
+    align-items: center;
+  }
 }
