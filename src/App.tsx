@@ -9,7 +9,7 @@ import {
 
 import Profile from "./pages/profile";
 
-import Header from "./components/Header";
+import Header from "./components/header";
 import TeacherProducts from "./pages/teacher/products";
 import TeacherHome from "./pages/teacher/reserves";
 import TeacherNewReserve from "./pages/teacher/new-reserve";
@@ -19,7 +19,7 @@ import ReservesTeacher from "./pages/admin/reserves-teacher";
 
 import AttendantHome from "./pages/attendant/home";
 import AttendantReserves from "./pages/attendant/reserves";
-import SideBar from "./components/SideBar";
+import SideBar from "./components/Sidebar";
 
 import Login from "./pages/login";
 import Register from "./pages/register";
@@ -33,6 +33,7 @@ import produtosIcon from "./assets/produtosIcon.png";
 import historic from "./assets/historic.png";
 import AdminInsertNewItem from "./pages/admin/insert-new-item";
 import AdminHome from "./pages/admin/home";
+import Fields from "./pages/admin/fields";
 
 export default function App() {
   const [user, setUser] = useState(localStorage.getItem("user"));
@@ -157,6 +158,7 @@ export default function App() {
                 path="admin/reservas-professor"
                 element={<ReservesTeacher />}
               />
+              <Route path="admin/campos" element={<Fields />} />
             </Routes>
           </div>
         </Router>
