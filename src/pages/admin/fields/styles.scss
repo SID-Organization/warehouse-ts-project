@@ -21,6 +21,24 @@
     gap: 3rem;
 
     .defaultInput {
+      display: flex;
+      align-items: center;
+
+      .default {
+        display: grid;
+      }
+
+      .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
+  }
+
+  .listItem {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
   }
 }

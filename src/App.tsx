@@ -34,6 +34,7 @@ import historic from "./assets/historic.png";
 import AdminInsertNewItem from "./pages/admin/insert-new-item";
 import AdminHome from "./pages/admin/home";
 import NewStorageSpace from "./pages/admin/new-storage-space";
+import Fields from "./pages/admin/fields";
 
 export default function App() {
   const [user, setUser] = useState(localStorage.getItem("user"));
@@ -163,6 +164,7 @@ export default function App() {
                 path="admin/new-storage-space"
                 element={<NewStorageSpace />}
               />
+              <Route path="admin/campos" element={<Fields />} />
             </Routes>
           </div>
         </Router>
