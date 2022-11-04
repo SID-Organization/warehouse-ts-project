@@ -17,6 +17,12 @@ export default function NewStorageSpace() {
 
   function addValues() {
     if (localSpace !== "" && defaultValue !== "") {
+        for(let item of list) {
+            if(item.localSpace === localSpace) {
+                alert("Local já cadastrado");
+                return;
+            }
+        }
       setList([...list, { localSpace, defaultValue }]);
     } else {
       alert("Preencha todos os campos");
