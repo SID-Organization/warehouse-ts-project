@@ -58,7 +58,7 @@ export default function NewStorageSpace() {
     {
       fieldName: "Caixa de madeira",
       label: "Caixa de madeira",
-      predefineValues: ["Caixa de madeira", "Caixa de madeira 2"],
+      predefineValues: ["leo troxao", "Caixa de madeira 2"],
     },
     {
       fieldName: "Caixa de plástico",
