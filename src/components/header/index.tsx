@@ -2,7 +2,11 @@ import "./styles.scss";
 
 import logo from "../../assets/SENAI-logo.png";
 import avatar from "../../assets/avatar-icon.png";
+
+import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from "react-router-dom";
+
+
 
 export default function Header() {
   const navigateTo = useNavigate();
@@ -16,20 +20,12 @@ export default function Header() {
   };
 
   return (
-    <>
+    <div>
       <div className="header-component">
         <div className="header-container">
           <div className="header-brand">
             <img src={logo} alt="Logo" />
           </div>
-          <p
-            onClick={() => {
-              handleLogOff();
-            }}
-            style={{ cursor: "pointer" }}
-          >
-            X
-          </p>
           <div className="header-profile">
             <p>
               {currentUser.given_name ?? "Nome do usuário"}{" "}
@@ -39,12 +35,12 @@ export default function Header() {
             {/* <div className='notification-icon'>
                             <i className="fas fa-bell"></i>
                         </div> */}
-            <div className="configuration-icon">
-              <i className="fa-solid fa-caret-down"></i>
+            <div className="configuration-icon" onClick={handleLogOff}>
+              <LogoutIcon sx={{color:"white"}}/>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
