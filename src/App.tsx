@@ -50,7 +50,7 @@ export default function App() {
   function getAdminSideBar() {
     return [
       { to: "/admin/produtos", img: produtosIcon, text: "Produtos" },
-      { to: "/admin/cadastrar-item", img: home, text: "Cadastrar item" },
+      { to: "/admin/cadastrar-item", img: plus, text: "Cadastrar item" },
       {
         to: "/admin/new-storage-space",
         img: plus,
