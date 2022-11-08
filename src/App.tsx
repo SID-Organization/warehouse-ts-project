@@ -49,7 +49,7 @@ export default function App() {
 
   function getAdminSideBar() {
     return [
-      { to: "/admin/home", img: home, text: "Home" },
+      { to: "/admin/produtos", img: produtosIcon, text: "Produtos" },
       { to: "/admin/cadastrar-item", img: home, text: "Cadastrar item" },
       {
         to: "/admin/new-storage-space",
@@ -172,6 +172,7 @@ export default function App() {
               />
               <Route path="admin/campos" element={<Fields />} />
               <Route path="admin/usuarios" element={<UserManagement />} />
+              <Route path="admin/produtos" element={<AdminHome />} />
             </Routes>
           </div>
         </Router>
