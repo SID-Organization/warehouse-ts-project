@@ -9,7 +9,7 @@ import {
 
 import Profile from "./pages/profile";
 
-import Header from "./components/Header";
+import Header from "./components/header";
 import TeacherProducts from "./pages/teacher/products";
 import TeacherHome from "./pages/teacher/reserves";
 import TeacherNewReserve from "./pages/teacher/new-reserve";
@@ -19,11 +19,12 @@ import ReservesTeacher from "./pages/admin/reserves-teacher";
 
 import AttendantHome from "./pages/attendant/home";
 import AttendantReserves from "./pages/attendant/reserves";
-import SideBar from "./components/SideBar";
+import SideBar from "./components/Sidebar";
 
 import Login from "./pages/login";
 import Register from "./pages/register";
 
+import UserManagement from "./pages/admin/userManagement";
 import calendar from "./assets/calendar.png";
 import clock from "./assets/clock.png";
 import home from "./assets/home.png";
@@ -48,9 +49,13 @@ export default function App() {
 
   function getAdminSideBar() {
     return [
-      { to: "/admin/home", img: home, text: "Home" },
-      { to: "/admin/cadastrar-item", img: home, text: "Cadastrar item" },
-      { to: "/admin/new-storage-space", img: plus, text: "Novo espaço organizacional" },
+      { to: "/admin/produtos", img: produtosIcon, text: "Produtos" },
+      { to: "/admin/cadastrar-item", img: plus, text: "Cadastrar item" },
+      {
+        to: "/admin/new-storage-space",
+        img: plus,
+        text: "Novo espaço organizacional",
+      },
       { to: "/admin/campos", img: plus, text: "Campos" },
     ];
   }
@@ -166,6 +171,8 @@ export default function App() {
                 element={<NewStorageSpace />}
               />
               <Route path="admin/campos" element={<Fields />} />
+              <Route path="admin/usuarios" element={<UserManagement />} />
+              <Route path="admin/produtos" element={<AdminHome />} />
             </Routes>
           </div>
         </Router>
