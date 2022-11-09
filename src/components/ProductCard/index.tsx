@@ -5,7 +5,7 @@ import add from "../../assets/add.png";
 import toast, { Toaster } from "react-hot-toast";
 
 import "./styles.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface productProps {
   name: string;
@@ -89,19 +89,18 @@ export default function ProductCardTeacher(props: productProps) {
     }
   }
 
+
   function productInformation() {
-    if (props.details) {
       return (
         <div className="product-informationClick">
           <div className="product-information__titleClick">
             <p>Informações sobre o produto</p>
           </div>
           <div className="product-information__descriptionClick">
-            <p>{props.details}</p>
+            <p>{props.details == "" ? "Sem detalhes" : props.details}</p>
           </div>
         </div>
       );
-    }
   }
 
   return (
@@ -127,7 +126,7 @@ export default function ProductCardTeacher(props: productProps) {
             />
           </div>
         </div>
-        {informationActive ? productInformation() : ""}
+        { informationActive && productInformation()}
         <div className="containerToolName">
           <div className="toolName">
             <h1 className="h1Tool">{props.name}</h1>

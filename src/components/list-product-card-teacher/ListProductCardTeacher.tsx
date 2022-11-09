@@ -5,8 +5,17 @@ import minus from "../../assets/minus.png";
 import plus from "../../assets/plus.png";
 
 import "./styles.scss";
+import { useState } from "react";
 
 export default function ListProductCardTeacher() {
+  const [value, setValue] = useState(0);
+
+  function decreaseValue() {
+    if (value > 0) {
+      setValue(value - 1);
+    }
+  }
+
   return (
     <div className="cardList">
       <div className="containerContentCard">
@@ -24,20 +33,20 @@ export default function ListProductCardTeacher() {
                 </h1>
               </div>
             </div>
-              <div className="containerSubtitle">
-                <h1 className="subtitleH1">Ferramenta manual</h1>
-              </div>
+            <div className="containerSubtitle">
+              <h1 className="subtitleH1">Ferramenta manual</h1>
+            </div>
           </div>
         </div>
         <div className="containerQtyAndAdd">
-        <div className="containerEstoque">
-              <div className="containerEstoqueH1">
-                <h1 className="estoqueH1">Estoque:</h1>
-              </div>
-              <div className="containerQtyH1">
-                <h1 className="qtyH1">17</h1>
-              </div>
+          <div className="containerEstoque">
+            <div className="containerEstoqueH1">
+              <h1 className="estoqueH1">Estoque:</h1>
             </div>
+            <div className="containerQtyH1">
+              <h1 className="qtyH1">17</h1>
+            </div>
+          </div>
           <div className="containerQty">
             <div className="containerH1Qty">
               <h1>Quantidade</h1>
@@ -45,17 +54,22 @@ export default function ListProductCardTeacher() {
             <div className="containerButtonsAndInput">
               <div className="containerRemove">
                 <div className="containerBallRemove">
-                  <div className="containerMinus">
+                  <div className="containerMinus" onClick={decreaseValue}>
                     <img src={minus} alt="" />
                   </div>
                 </div>
               </div>
               <div className="containerInput">
-                <input type="Number" />
+                <input type="text" value={value} />
               </div>
               <div className="containerAdd">
                 <div className="containerBallAdd">
-                  <div className="containerPlus">
+                  <div
+                    className="containerPlus"
+                    onClick={() => {
+                      setValue(value + 1);
+                    }}
+                  >
                     <img src={plus} alt="" />
                   </div>
                 </div>

@@ -56,6 +56,12 @@ export default function ReserveHistoric() {
               <th className="statusTableInfo">confirmado</th>
             </tr>
           </table>
+          <h1 className="limitText">Martelo caso o nome seja maior</h1>
+          <h1 className="manual">Manual</h1>
+          <h1 className="retornavel">Retornável</h1>
+          <h1 className="qty">2</h1>
+          <h1 className="estoque">42</h1>
+          <h1 className="confirmed">confirmado</h1>
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ import {
 
 import Profile from "./pages/profile";
 
-import Header from "./components/header";
+import Header from "./components/Header";
 import TeacherProducts from "./pages/teacher/products";
 import TeacherHome from "./pages/teacher/reserves";
 import TeacherNewReserve from "./pages/teacher/new-reserve";
@@ -19,7 +19,8 @@ import ReservesTeacher from "./pages/admin/reserves-teacher";
 
 import AttendantHome from "./pages/attendant/home";
 import AttendantReserves from "./pages/attendant/reserves";
-import SideBar from "./components/Sidebar";
+import SideBar from "./components/SideBar";
+
 
 import Login from "./pages/login";
 import Register from "./pages/register";
@@ -139,7 +140,6 @@ export default function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/cadastro" element={<Register />} />
               <Route path="/profile" element={<Profile />} />
-
               <Route path="/atendente/home" element={<AttendantHome />} />
               <Route
                 path="/atendente/reservas"

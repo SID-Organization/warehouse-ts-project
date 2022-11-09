@@ -65,7 +65,7 @@ export default function ListProductCardTeacher(props: productProps) {
         <div className="containerSpecifications">
           <div className="containerImage">
             <div className="bgImage">
-              <img src={props.img ?? hammerImg} alt="hammer" />
+              <img src={props.img && "data:image/png;base64," + props.img} />
             </div>
           </div>
           <div className="containerTitleAndSubtitle">

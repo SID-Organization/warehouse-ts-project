@@ -1,5 +1,5 @@
 import "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import UploadIcon from "../../../assets/upload-icon.png";
 
 import "./styles.scss";
@@ -13,12 +13,21 @@ export default function AdminInsertNewItem() {
   const [details, setDetails] = useState("");
   const [disposable, setDisposable] = useState(false);
   const [storagePositionId, setStoragePositionId] = useState("");
+  const [orgSpaces, setOrgSpaces] = useState<any[]>();
+
+  function clearStates() {
+    setName("");
+    setStorageQty(0);
+    setCharacteristic("");
+    setClassification("");
+    setDetails("");
+    setDisposable(false);
+    setStoragePositionId("");
+  }
 
   async function handleItemInsert() {
-    console.log("Item inserido com sucesso!");
 
     const formData = new FormData();
-
     const data = {
       nomeItem: name,
       caracteristicaItem: characteristic,
@@ -34,29 +43,34 @@ export default function AdminInsertNewItem() {
     if (image) {
       formData.append("image", image);
     }
-
-    const response = await fetch("http://localhost:8080/almoxarifado/itens", {
+    await fetch("http://localhost:8080/almoxarifado/itens", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
 
-    console.log(response);
+      alert("Item cadastrado com sucesso!")
+
   }
 
   function handleInputChange(e: any) {
     setImage(e.target.files[0]);
   }
 
-  const defaultSelectValues = [
-    {
-      id: 1,
-      fieldName: "Caixa de papelão",
-      label: "Caixa de papelão",
-    },
-  ];
+  async function getOrgSpaces(){
+    await fetch("http://localhost:8080/almoxarifado/espaco-organizacional")
+    .then((response) => response.json())
+    .then(data => {
+      setOrgSpaces(data)
+      setStoragePositionId(data[0].idEspacoOrganizacional)
+    })
+    
+    clearStates();
+  }
+
+  useEffect(() => {
+    getOrgSpaces();
+  }, [])
 
   return (
     <div id="div-screen">
@@ -149,9 +163,9 @@ export default function AdminInsertNewItem() {
                   setStoragePositionId(e.target.value);
                 }}
               >
-                {defaultSelectValues.map((selectValue) => {
+                {orgSpaces?.map((selectValue, i) => {
                   return (
-                    <option value={selectValue.id}>{selectValue.label}</option>
+                    <option key={i} value={selectValue.idEspacoOrganizacional}>{selectValue.nomeEspacoOrganizacional}</option>
                   );
                 })}
               </select>

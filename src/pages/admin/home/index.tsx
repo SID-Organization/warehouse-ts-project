@@ -25,31 +25,6 @@ export default function TeacherProducts() {
     getProducts();
   }, []);
 
-  // const products = [
-  //   {
-  //     nome: "Machado gigas",
-  //     quantidade_estoque: 29,
-  //     caracteristica: "Ferramenta manual",
-  //     classificacao: "Ferramenta manual",
-  //     detalhes: "Machada",
-  //     descartavel: false,
-  //     ativo: true,
-  //     img: "https://i.imgur.com/6rRmSo6_d.webp?maxwidth=520&shape=thumb&fidelity=high",
-  //     idEstoque: 3,
-  //   },
-  //   {
-  //     nome: "Picareta",
-  //     quantidade_estoque: 321,
-  //     caracteristica: "Ferramenta manual",
-  //     classificacao: "Ferramenta manual",
-  //     detalhes: "Picareta",
-  //     descartavel: false,
-  //     ativo: true,
-  //     img: "https://i.imgur.com/6rRmSo6_d.webp?maxwidth=520&shape=thumb&fidelity=high",
-  //     idEstoque: 4,
-  //   },
-  // ];
-
   const listFormat = () => {
     return (
       <React.Fragment>

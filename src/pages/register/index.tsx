@@ -17,23 +17,21 @@ import confirmPass from "../../assets/confirm-passwd.png";
 export default function Register() {
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
-  const [buttonClicked, setButtonClicked] = useState(0);
 
   function checkButtonClicked() {
-    setButtonClicked(buttonClicked + 1);
-    if (buttonClicked < 1) {
-      toast.success("Registro solicitado com sucesso!", {
-        style: {
-          background: "#0047B5",
-          color: "#fff"
-        },
-        iconTheme: {
-          primary: "#fff",
-          secondary: "#0047B5"
-        },
-        duration: 3500
-      });
-    }
+
+    toast.success("Registro solicitado com sucesso!", {
+      style: {
+        background: "#0047B5",
+        color: "#fff"
+      },
+      iconTheme: {
+        primary: "#fff",
+        secondary: "#0047B5"
+      },
+      duration: 3500
+    });
+    
   }
 
   const handleToggle = () => {

@@ -3,7 +3,6 @@ import "./styles.scss";
 import gradeLayout from "../../../assets/gradeLayout.png";
 import listLayout from "../../../assets/list.png";
 
-
 import ProductCardTeacher from "../../../components/product-card-teacher/productCardTeacher";
 import ListProductCardTeacher from "../../../components/list-product-card-teacher/ListProductCardTeacher";
 import { useState } from "react";
@@ -11,7 +10,7 @@ import { useState } from "react";
 export default function TeacherHome() {
   const [listFormatClicked, setListFormatClicked] = useState(false);
   const [today, setToday] = useState(new Date());
-  const listFormat = () => { 
+  const listFormat = () => {
     return (
       <>
         <ListProductCardTeacher />
@@ -32,19 +31,16 @@ export default function TeacherHome() {
       <header>
         <div className="containerHeaderTeacher">
           <div className="page-title">
-
             <div className="containerProductsTitle">
               <div className="productTitle">
-                <h1 className="h1Produtos">Produtos</h1>
+                <h1 className="h1Produtos">Suas reservas</h1>
               </div>
             </div>
             <div className="todays-date">
-              <p>
-                Hoje, {today.toLocaleDateString()}
-              </p>
+              <p>Hoje, {today.toLocaleDateString()}</p>
             </div>
           </div>
-          <div className="containerSearchInput">
+          {/* <div className="containerSearchInput">
             <div className="inputSearch">
               <form className="form">
                 <button>
@@ -70,7 +66,7 @@ export default function TeacherHome() {
                   placeholder="Pesquise por produtos"
                   type="text"
                 />
-                {/* <Filter /> */}
+                <Filter />
                 <button className="reset" type="reset">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -89,27 +85,10 @@ export default function TeacherHome() {
                 </button>
               </form>
             </div>
-          </div>
+          </div> */}
         </div>
       </header>
-      <main>
-        <div className="containerProductsCard">
-          <div className="changeLayout">
-            <div className="containerIconChange">
-              <div className="ballIcon">
-                <img
-                  className="iconGrade"
-                  src={listFormatClicked ? gradeLayout : listLayout}
-                  onClick={() => setListFormatClicked(!listFormatClicked)}
-                />
-              </div>
-            </div>
-          </div>
-          <div className={listFormatClicked ? "containerListCards" : "containerGridCards"}>
-            {listFormatClicked ? listFormat() : gridFormat()}
-          </div>
-        </div>
-      </main>
+      <main></main>
     </div>
   );
 }
