@@ -13,32 +13,131 @@ import { Button, Tooltip } from "@mui/material";
 export default function NewStorageSpace() {
   const [localSpace, setLocalSpace] = React.useState("");
   const [defaultValue, setDefaultValue] = React.useState("");
-  const [list, setList] = React.useState<any[]>([]);
+  const [storageLocationList, setStorageLocationList] = React.useState<any[]>([]);
+  const [defaultSelectValues, setDefaultSelectValues] = React.useState<any[]>();
+  const [newOrgSpaces, setNewOrgSpace] = React.useState<any[]>([]);
+  const [newOrgSpaceName, setNewOrgSpaceName] = React.useState("");
+
+
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect(() => {
+    if(defaultSelectValues){
+      
+      const fieldNamesList = defaultSelectValues.filter((item, i) => i % 2 === 0);
+      const fieldValuesList = defaultSelectValues.filter((item, i) => i % 2 !== 0);
+
+      const newArray = [];
+
+      for(let i = 0; i < fieldNamesList.length; i++){
+        newArray.push({
+          field: fieldNamesList[i],
+          values: fieldValuesList[i]
+        });
+      }
+      setStorageLocationList(newArray);
+    }
+  }, [defaultSelectValues]);
+
+
+  async function registerOrgSpaceOnDB() {
+    const dataToBeSent = {
+      nomeEspacoOrganizacional: newOrgSpaceName,
+      localizacoes:
+        newOrgSpaces.map((item) => ({
+          idCampo: {idCampo: parseInt(getLocalSpaceId(item.localSpace))},
+          idValorPredefinido: {idValorPredefinido : parseInt(getDefaultValueId(item.localSpace, item.defaultValue))}
+        })),
+    }
+
+    console.log(dataToBeSent);
+
+    const registeredData = await fetch("http://localhost:8080/almoxarifado/espaco-organizacional/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataToBeSent),
+    })
+    .then(response => response.json())
+    .catch(error => console.log(error));
+
+    alert("Espaço organizacional cadastrado com sucesso!");
+    console.log("RegisteredData", registeredData);
+  }
+  
+  const getValoresPredefinidos = (fieldId: string) => {
+    const list = storageLocationList.find((item) => item.field.idCampo === fieldId);
+    if (list) {
+      return list.values;
+    }
+    return [];
+  };
+
+  /**
+   * Faz o fetch para o banco e retorna os dados alternando entre os campos e os valores dos campos
+   * [
+   *  {idCampo: 1, nomeCampo: "gaveta"},
+   *  [{valor: "1"}, {valor: "2"}, {valor: "3"}]
+   * ]
+   */
+  async function getData(){
+    await fetch(
+      "http://localhost:8080/almoxarifado/campos"
+    ).then(response => response.json())
+    .then(data => {
+      setDefaultSelectValues(data);
+    });
+  }
 
   function addValues() {
     if (localSpace !== "" && defaultValue !== "") {
-        for(let item of list) {
-            if(item.localSpace === localSpace) {
-                alert("Local já cadastrado");
-                return;
-            }
+      for (let item of newOrgSpaces) {
+        if (item.localSpace === getLocalSpace(localSpace)) {
+          alert("Local já cadastrado");
+          return;
         }
-      setList([...list, { localSpace, defaultValue }]);
+      }
+      setNewOrgSpace([...newOrgSpaces, { localSpace: getLocalSpace(localSpace), defaultValue: getDefaultValue(localSpace, defaultValue) }]);
     } else {
       alert("Preencha todos os campos");
     }
   }
 
+  function getLocalSpace(id: string) {
+    const localSpace = storageLocationList.find((item) => item.field.idCampo === id);
+    return localSpace.field.nomeCampo;
+  }
+
+  function getDefaultValue(id: string, valueId: string) {
+    const defaultValue = storageLocationList.find((item) => item.field.idCampo === id);
+    const value = defaultValue.values.find((item:any) => item.idValorPredefinido === valueId);
+    return value.valorPredefinido;
+  }
+
+  function getLocalSpaceId(name: string) {
+    const localSpace = storageLocationList.find((item) => item.field.nomeCampo === name);
+    return localSpace.field.idCampo;
+  }
+
+  function getDefaultValueId(name: string, value: string) {
+    const defaultValue = storageLocationList.find((item) => item.field.nomeCampo === name);
+    const valueId = defaultValue.values.find((item:any) => item.valorPredefinido === value);
+    return valueId.idValorPredefinido;
+  }
+
   function getValues() {
-    return list.map((item, index) => (
-      <div>
-        <div className="listItem">
+    return newOrgSpaces.map((item, index) =>
+        <div className="listItem" key={index}>
           {item.localSpace} - {item.defaultValue}
           <Tooltip title="Remover valor">
             <DeleteIcon
               onClick={() => {
-                const newList = list.filter((_, i) => i !== index);
-                setList(newList);
+                const newList = newOrgSpaces.filter((_, i) => i !== index);
+                setNewOrgSpace(newList);
               }}
               sx={{
                 width: "1.5rem",
@@ -46,37 +145,13 @@ export default function NewStorageSpace() {
                 color: "#a3a3a3",
                 borderRadius: "1rem",
                 marginLeft: "1rem",
-                cursor: "pointer",
+                cursor: "pointer"
               }}
             />
           </Tooltip>
         </div>
-      </div>
-    ));
+    );
   }
-
-  const defaultSelectValues = [
-    {
-      fieldName: "Caixa de papelão",
-      label: "Caixa de papelão",
-      predefineValues: ["Caixa de papelão", "Caixa de papelão 2"],
-    },
-    {
-      fieldName: "Caixa de madeira",
-      label: "Caixa de madeira",
-      predefineValues: ["leo troxao", "Caixa de madeira 2"],
-    },
-    {
-      fieldName: "Caixa de plástico",
-      label: "Caixa de plástico",
-      predefineValues: ["Caixa de plástico", "Caixa de plástico 2"],
-    },
-    {
-      fieldName: "Caixa de metal",
-      label: "Caixa de metal",
-      predefineValues: ["Caixa de metal", "Caixa de metal 2"],
-    },
-  ];
 
   const handleChangeLocalSpace = (event: SelectChangeEvent) => {
     setLocalSpace(event.target.value as string);
@@ -102,11 +177,12 @@ export default function NewStorageSpace() {
             cursor: "pointer",
             backgroundColor: "#0047B5",
             "&:hover": {
-              backgroundColor: "#0047B5",
-            },
+              backgroundColor: "#0047B5"
+            }
           }}
           variant="contained"
           endIcon={<AddBoxIcon />}
+          onClick={() => {registerOrgSpaceOnDB()}}
         >
           Cadastrar espaço organizacional
         </Button>
@@ -116,6 +192,8 @@ export default function NewStorageSpace() {
           label="Nome do espaço de armazenamento"
           placeholder="Caixa vermelha"
           sx={{ width: "30rem" }}
+          value={newOrgSpaceName}
+          onChange={(e:any) => setNewOrgSpaceName(e.target.value)}
         />
         <div className="fieldsSelect">
           <FormControl fullWidth>
@@ -130,11 +208,13 @@ export default function NewStorageSpace() {
               onChange={handleChangeLocalSpace}
               sx={{ width: "30rem" }}
             >
-              {defaultSelectValues.map((item) => (
-                <MenuItem value={item.fieldName}>{item.label}</MenuItem>
-              ))}
+              {storageLocationList?.map(item =>
+                <MenuItem value={item.field.idCampo}>
+                  {item.field.nomeCampo}
+                </MenuItem>
+              )}
             </Select>
-          </FormControl>
+          </FormControl>    
           <div className="waterMaster">
             <div className="defaultInput">
               <FormControl fullWidth>
@@ -149,13 +229,13 @@ export default function NewStorageSpace() {
                   onChange={handleChangeDefaultValue}
                   sx={{ width: "30rem" }}
                 >
-                  {defaultSelectValues
-                    .filter((item) => item.fieldName === localSpace)
-                    .map((item) =>
-                      item.predefineValues.map((predefine) => (
-                        <MenuItem value={predefine}>{predefine}</MenuItem>
-                      ))
-                    )}
+                  {
+                    getValoresPredefinidos(localSpace).map((value:any) => (
+                      <MenuItem value={value.idValorPredefinido}>
+                        {value.valorPredefinido}
+                      </MenuItem>
+                    ))
+                  }
                 </Select>
               </FormControl>
               <Tooltip title="Adicionar valor">
@@ -167,7 +247,7 @@ export default function NewStorageSpace() {
                     color: "#0047B5",
                     borderRadius: "1rem",
                     marginLeft: "1rem",
-                    cursor: "pointer",
+                    cursor: "pointer"
                   }}
                 />
               </Tooltip>

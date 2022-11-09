@@ -59,14 +59,12 @@ export default function Fields() {
   }
 
   async function sendToDatabase() {
-    const data = {
-      nomeCampo: fieldName,
-      valores: [
-        {
-          valorPredefinido: list
-        }
-      ]
-    };
+    const data = list.map((item, index) => {
+      return {
+        nomeCampo: item.fieldName,
+        valores: item.values.map((e:any) => ({"valorPredefinido": e}))
+      };
+    })
 
     const response = await fetch("http://localhost:8080/almoxarifado/campos", {
       method: "POST",
@@ -78,8 +76,7 @@ export default function Fields() {
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(error => console.log(error));
-
-    console.log(response);
+      alert("Campos cadastrados com sucesso!");
   }
 
   return (
