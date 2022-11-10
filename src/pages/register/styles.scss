@@ -10,8 +10,8 @@
 
   .containerLogin {
     margin-top: 2rem;
-    width: 28rem;
-    height: 30rem;
+    width: 35rem;
+    height: 34rem;
     border: white solid 3px;
     position: fixed;
     left: 50%;
@@ -49,11 +49,11 @@
     margin-top: 1rem;
   }
 
-  .containerCrendetials {
+  .containerCredentials {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
+    width: 22rem;
   }
 
   .containerUser {
@@ -377,5 +377,15 @@
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+  }
+
+  .containerWrongPassFeedback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+     p {
+      color: red;
+    }
   }
 }
