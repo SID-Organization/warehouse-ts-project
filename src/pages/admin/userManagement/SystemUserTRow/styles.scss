@@ -1,0 +1,42 @@
+tr.user-row {
+  td {
+    border: solid 1px #d9d9d9;
+    padding: 0.5rem;
+    height: 3rem;
+  }
+  td:nth-last-child(-n + 3) {
+    text-align: center;
+  }
+  td:nth-last-child(1) {
+    display: grid;
+    border: none;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .edit-icon {
+    cursor: pointer;
+    width: 1.3rem;
+  }
+
+  td.show-row-actions {
+      background-color: #f8f8f8;
+  }
+
+  .role-select{
+    width: 10rem;
+    height: 1.8rem;
+    border-radius: 2px;
+    border-color: #d9d9d9;
+    cursor: pointer;
+    &:disabled{
+        cursor: default;
+    }
+  }
+
+  input.role-select{
+    padding-left: 8px;
+  }
+}
+
+

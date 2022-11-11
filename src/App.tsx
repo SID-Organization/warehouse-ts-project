@@ -19,7 +19,7 @@ import ReservesTeacher from "./pages/admin/reserves-teacher";
 
 import AttendantHome from "./pages/attendant/home";
 import AttendantReserves from "./pages/attendant/reserves";
-import SideBar from "./components/SideBar";
+import SideBar from "./components/Sidebar";
 
 
 import Login from "./pages/login";
@@ -53,11 +53,12 @@ export default function App() {
       { to: "/admin/produtos", img: produtosIcon, text: "Produtos" },
       { to: "/admin/cadastrar-item", img: plus, text: "Cadastrar item" },
       {
-        to: "/admin/new-storage-space",
+        to: "/admin/novo-espaco-organizacional",
         img: plus,
         text: "Novo espaço organizacional",
       },
       { to: "/admin/campos", img: plus, text: "Campos" },
+      { to: "/admin/usuarios", img: plus, text: "Usuários do Sistema" },
     ];
   }
 
@@ -157,22 +158,23 @@ export default function App() {
                 element={<ReserveHistoric />}
               />
 
-              <Route path="admin/home" element={<AdminHome />} />
+                
+              <Route path="/admin/home" element={<AdminHome />} />
               <Route
-                path="admin/cadastrar-item"
+                path="/admin/cadastrar-item"
                 element={<AdminInsertNewItem />}
               />
               <Route
-                path="admin/reservas-professor"
+                path="/admin/reservas-professor"
                 element={<ReservesTeacher />}
               />
               <Route
-                path="admin/new-storage-space"
+                path="/admin/novo-espaco-organizacional"
                 element={<NewStorageSpace />}
               />
-              <Route path="admin/campos" element={<Fields />} />
-              <Route path="admin/usuarios" element={<UserManagement />} />
-              <Route path="admin/produtos" element={<AdminHome />} />
+              <Route path="/admin/campos" element={<Fields />} />
+              <Route path="/admin/usuarios" element={<UserManagement />} />
+              <Route path="/admin/produtos" element={<AdminHome />} />
             </Routes>
           </div>
         </Router>

@@ -39,7 +39,6 @@ export default function Register() {
       cargo: "PENDENTE"
     };
 
-    console.info(dataToSend);
     return dataToSend;
   }
 
@@ -58,7 +57,7 @@ export default function Register() {
   }
 
   function showErrorToast() {
-    toast.error("Erro ao solicitar registro!", {
+    toast.error("Erro ao solicitar registro! (Erro 409)", {
       style: {
         background: "#FF0000",
         color: "#fff"
@@ -79,15 +78,15 @@ export default function Register() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(getPostData())
-      }).then(response => {
-        // if (response.status === 200) {
-        //   showSuccessToast();
-        // } else {
-        //   showErrorToast();
-        // }
-        return response.json();
       })
-      .then(data => console.log(data));
+        .then(response => {
+          if (response.status === 201) {
+            showSuccessToast();
+          } else {
+            showErrorToast();
+          }
+          return response.json();
+        })
     } else {
       setWrongPassFeedback(true);
     }
@@ -143,94 +142,83 @@ export default function Register() {
             </div>
             <div className="containerGoBack" />
           </div>
-
-          <form action="#">
-            <div className="containerForms">
-              <div className="containerCredentials">
-                <div className="containerEmail">
-                  <img className="loginIcon" src={emailIcon} alt="" />
-                  <input
-                    className="inputEmail"
-                    type="text"
-                    placeholder="E-mail"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                  />
-                </div>
-                <div className="containerEmail">
-                  <img className="loginIcon" src={matriculaIcon} alt="" />
-                  <input
-                    className="inputEmail"
-                    type="text"
-                    placeholder="Matrícula"
-                    value={matricula}
-                    onChange={e => setMatricula(parseInt(e.target.value))}
-                  />
-                </div>
-                <div className="containerUser">
-                  <img className="loginIcon" src={userIcon} alt="" />
-                  <input
-                    className="inputUser"
-                    type="text"
-                    placeholder="Nome completo"
-                    value={usuario}
-                    onChange={e => setUsuario(e.target.value)}
-                  />
-                </div>
-                <div className="containerPassword">
-                  <img
-                    className="loginIcon"
-                    src={passLockIcon}
-                    alt="loginIcon"
-                  />
-                  <input
-                    id="inputPassword"
-                    type={type}
-                    placeholder="Senha"
-                    value={senha}
-                    onChange={e => setSenha(e.target.value)}
-                  />
-                  <span onClick={handleToggle}>
-                    <Icon icon={icon} size={25} />
-                  </span>
-                </div>
-                <div className="containerConfirmPassword">
-                  <img
-                    className="loginIcon"
-                    src={confirmPassIcon}
-                    alt="loginIcon"
-                  />
-                  <input
-                    id="inputPassword"
-                    type="password"
-                    placeholder="Confirmar senha"
-                    value={confirmaSenha}
-                    onChange={e => setConfirmaSenha(e.target.value)}
-                  />
-                </div>
+          <div className="containerForms">
+            <div className="containerCredentials">
+              <div className="containerEmail">
+                <img className="loginIcon" src={emailIcon} alt="" />
+                <input
+                  className="inputEmail"
+                  type="text"
+                  placeholder="E-mail"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="containerEmail">
+                <img className="loginIcon" src={matriculaIcon} alt="" />
+                <input
+                  className="inputEmail"
+                  type="text"
+                  placeholder="Matrícula"
+                  value={matricula}
+                  onChange={e => setMatricula(parseInt(e.target.value))}
+                />
+              </div>
+              <div className="containerUser">
+                <img className="loginIcon" src={userIcon} alt="" />
+                <input
+                  className="inputUser"
+                  type="text"
+                  placeholder="Nome completo"
+                  value={usuario}
+                  onChange={e => setUsuario(e.target.value)}
+                />
+              </div>
+              <div className="containerPassword">
+                <img className="loginIcon" src={passLockIcon} alt="loginIcon" />
+                <input
+                  id="inputPassword"
+                  type={type}
+                  placeholder="Senha"
+                  value={senha}
+                  onChange={e => setSenha(e.target.value)}
+                />
+                <span onClick={handleToggle}>
+                  <Icon icon={icon} size={25} />
+                </span>
+              </div>
+              <div className="containerConfirmPassword">
+                <img
+                  className="loginIcon"
+                  src={confirmPassIcon}
+                  alt="loginIcon"
+                />
+                <input
+                  id="inputPassword"
+                  type="password"
+                  placeholder="Confirmar senha"
+                  value={confirmaSenha}
+                  onChange={e => setConfirmaSenha(e.target.value)}
+                />
               </div>
             </div>
-            <div style={{ height: "5px" }}>
-              {wrongPassFeedback &&
-                <div className="containerWrongPassFeedback">
-                  <p className="wrongPassFeedback">
-                    Senhas não conferem, por favor, tente novamente.
-                  </p>
-                </div>}
-            </div>
+          </div>
+          <div style={{ height: "5px" }}>
+            {wrongPassFeedback &&
+              <div className="containerWrongPassFeedback">
+                <p className="wrongPassFeedback">
+                  Senhas não conferem, por favor, tente novamente.
+                </p>
+              </div>}
+          </div>
 
-            <div className="containerButtonsRegister">
-              <div className="containerLoginButton">
-                <button
-                  type="submit"
-                  onClick={sendDataToDB}
-                  className="buttonRegister"
-                >
-                  Solicitar registro
-                </button>
-              </div>
+          <div className="containerButtonsRegister">
+            <div className="containerLoginButton">
+              <button onClick={sendDataToDB} className="buttonRegister">
+                Solicitar registro
+              </button>
             </div>
-          </form>
+          </div>
         </div>
       </main>
     </div>
