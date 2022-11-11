@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles.scss";
 
 import { Link } from "react-router-dom";
@@ -25,6 +26,7 @@ export default function Register() {
   const [senha, setSenha] = useState("");
   const [confirmaSenha, setConfirmaSenha] = useState("");
   const [wrongPassFeedback, setWrongPassFeedback] = useState(false);
+  const navigateTo = useNavigate();
 
   function getPostData() {
     const [nome, ...sobrenomes] = usuario.split(" ");
@@ -85,6 +87,7 @@ export default function Register() {
           } else {
             showErrorToast();
           }
+          navigateTo("/login");
           return response.json();
         })
     } else {

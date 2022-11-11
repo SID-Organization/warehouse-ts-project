@@ -10,6 +10,7 @@ import { type } from "os";
 
 interface productProps {
   name: string;
+  idItem: number;
   quantity: number;
   characteristic?: string;
   classfication: string;

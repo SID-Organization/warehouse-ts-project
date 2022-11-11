@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 
 interface productProps {
   name: string;
+  idItem: number;
   storageQuantity: number;
   characteristic?: string;
   classfication: string;
@@ -21,6 +22,7 @@ interface productProps {
 
 interface newProductProps {
   name: string;
+  idItem: number;
   quantity: number;
   characteristic?: string;
   classfication: string;
@@ -52,6 +54,7 @@ export default function ProductCardTeacher(props: productProps) {
       active: props.active,
       img: props.img,
       idEstoque: props.idEstoque,
+      idItem: props.idItem,
     };
 
     console.log("newProduct", newProduct);

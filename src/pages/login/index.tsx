@@ -1,8 +1,7 @@
 import "./styles.scss";
 
-
 import { useEffect, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import jwtDecode from "jwt-decode";
 
@@ -13,77 +12,79 @@ import { eye } from "react-icons-kit/feather/eye";
 import userIcon from "../../assets/user.png";
 import padlock from "../../assets/passwd-lock.png";
 
+
 declare global {
   const google: any;
 }
 
-
+interface IUsers {
+  nome: string;
+  sobrenome: string;
+  email: string;
+  senha: string;
+  matricula: string;
+  cargo: string;
+}
 
 export default function Login() {
-
-
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [systemUsers, setSystemUsers] = useState<IUsers[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/almoxarifado/pessoas")
+      .then(response => response.json())
+      .then(data => setSystemUsers(data));
+  }, []);
+
+  useEffect(
+    () => {
+      console.log(systemUsers);
+    },
+    [systemUsers]
+  );
+
+  // Handle password visibility
+  useEffect(
+    () => {
+      icon == eyeOff ? setIcon(eye) : setIcon(eyeOff);
+    },
+    [type]
+  );
+
   const navigateTo = useNavigate();
 
-  const usersList = [
-    {
-      email: 'professor',
-      password: '123',
-      accessType: 'teacher'
-    },
-    {
-      email: 'atendente',
-      password: '123',
-      accessType: 'attendant'
-    },
-    {
-      email: 'admin',
-      password: '123',
-      accessType: 'admin'
-    }
-  ]
-
   const handleGoogleLogin = (userObj: any) => {
-    localStorage.setItem("user", JSON.stringify(userObj))
+    localStorage.setItem("user", JSON.stringify(userObj));
     navigateTo("/professor/produtos", { replace: true });
     window.location.reload();
-  }
+  };
 
   const handleCallBackResponse = (response: { credential: string }) => {
     console.log("JWT response: ", response.credential);
     const userObject = jwtDecode(response.credential);
     userObject ? handleGoogleLogin(userObject) : null;
     console.log(userObject);
-  }
+  };
 
-
+  // Handle google login
   useEffect(() => {
     /* global google */
     google.accounts.id.initialize({
-      client_id: "421872872808-v1hqi6rng9jhg153em4mbnorolbk98uu.apps.googleusercontent.com",
+      client_id:
+        "421872872808-v1hqi6rng9jhg153em4mbnorolbk98uu.apps.googleusercontent.com",
       callback: handleCallBackResponse
-    })
+    });
 
-    google.accounts.id.renderButton(
-      document.getElementById("signInDiv"),
-      { theme: "outline", size: "standard" },
-    )
+    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+      theme: "outline",
+      size: "standard"
+    });
   }, []);
-
-
-  useEffect(() => {
-    localStorage.clear();
-    handleIconChange();
-  }, [type]);
-
-  const handleIconChange = () => {
-    icon == eyeOff ? setIcon(eye) : setIcon(eyeOff);
-  }
 
   const handleToggle = () => {
     if (type === "password") {
@@ -94,32 +95,30 @@ export default function Login() {
   };
 
   const handleLogin = () => {
-    const user = usersList.find(user => user.email === email && user.password === password);
+    const user = systemUsers.find(
+      user => user.email === email && user.senha === password
+    );
     if (user) {
       localStorage.setItem("user", JSON.stringify(user));
 
-
-      if (user.accessType === "admin") {
+      if (user.cargo === "ADMINISTRADOR") {
         localStorage.setItem("adminUser", "true");
         navigateTo("/admin/home", { replace: true });
       }
-      if (user.accessType === "attendant") {
+      if (user.cargo === "ATENDENTE") {
         localStorage.setItem("attendantUser", "true");
         navigateTo("/atendente/home", { replace: true });
       }
-      if (user.accessType === "teacher") {
+      if (user.cargo === "PROFESSOR") {
         localStorage.setItem("teacherUser", "true");
         navigateTo("/professor/produtos", { replace: true });
       }
 
       window.location.reload();
-
     } else {
       alert("Usuário ou senha inválidos");
     }
-  }
-
-
+  };
 
   return (
     <div className="loginPage">
@@ -131,7 +130,7 @@ export default function Login() {
           />
         </div>
       </header>
-      <div className="image"></div>
+      <div className="image" />
       <main>
         <div className="containerLogin">
           <div className="containerBar">
@@ -149,7 +148,7 @@ export default function Login() {
                   type="text"
                   placeholder="Usuário"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={e => setEmail(e.target.value)}
                 />
               </div>
 
@@ -161,8 +160,8 @@ export default function Login() {
                   type={type}
                   placeholder="Senha"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  onKeyDownCapture={(e) => {
+                  onChange={e => setPassword(e.target.value)}
+                  onKeyDownCapture={e => {
                     if (e.key === "Enter") {
                       handleLogin();
                     }
@@ -182,7 +181,9 @@ export default function Login() {
           </div>
           <div className="containerButtons">
             <div className="containerLoginButton">
-              <button className="buttonLogin" onClick={() => handleLogin()}>Entrar</button>
+              <button className="buttonLogin" onClick={() => handleLogin()}>
+                Entrar
+              </button>
             </div>
             <div className="containerAnotherOptionToLogin">
               <div className="anotherOptionText">
@@ -190,9 +191,7 @@ export default function Login() {
               </div>
             </div>
             <div className="containerGoogleLoginButton">
-              <div id="signInDiv">
-
-              </div>
+              <div id="signInDiv" />
             </div>
           </div>
           <div className="containerRegister">

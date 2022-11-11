@@ -1,34 +1,39 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
 import "./styles.scss";
 
 import SystemUserTRow from "./SystemUserTRow";
 
-const usersMock = [
-  {
-    name: "João da Silva",
-    email: "joaosilva@gmail.com",
-    matricula: "65483",
-    funcao: "Professor"
-  },
-  {
-    name: "Maria da Silva",
-    email: "mariasilva@gmail.com",
-    matricula: "65484",
-    funcao: "Pendente"
-  },
-  {
-    name: "Carlos Prado",
-    email: "carlosprado@gmail.com",
-    matricula: "65485",
-    funcao: "Pendente"
-  }
-];
+interface IUsers{
+    nome: string,
+    sobrenome: string,
+    email: string,
+    senha: string,
+    matricula: string,
+    cargo: string
+}
 
-function AdminMngmntUsers() {
+
+function AdminUsersManagement() {
+  const [users, setUsers] = useState<IUsers[]>();
+
+  useEffect(() => {
+    fetch('http://localhost:8080/almoxarifado/pessoas')
+    .then(response => response.json())
+    .then(data => {
+      setUsers(data);
+    })
+  },[])
+
+  useEffect(() => {
+    console.log(users);
+  },[users])
+
+
+
   return (
-    <React.Fragment>
-      <h2>Usuários do sistema</h2>
+    <div className="manage-users-container">
+      <h2>USUÁRIOS DO SISTEMA</h2>
       <table className="users-table">
         <thead>
           <tr>
@@ -40,11 +45,11 @@ function AdminMngmntUsers() {
           </tr>
         </thead>
         <tbody>
-          {usersMock.filter(user => user.funcao.toUpperCase() == "PROFESSOR").map(user => <SystemUserTRow user={user} />)}
+          {users?.filter(user => user.cargo != "PENDENTE").map((user, index) => <SystemUserTRow key={index} user={user} />)}
         </tbody>
       </table>
 
-      <h2>Cadastros pendentes</h2>
+      <h2>CADASTROS PENDENTES</h2>
       <table className="users-table">
         <thead>
           <tr>
@@ -56,11 +61,11 @@ function AdminMngmntUsers() {
           </tr>
         </thead>
         <tbody>
-          {usersMock.filter(user => user.funcao.toUpperCase() == "PENDENTE").map(user => <SystemUserTRow user={user} />)}
+          {users?.filter(user => user.cargo == "PENDENTE").map((user, index) => <SystemUserTRow key={index} user={user} />)}
         </tbody>
       </table>
-    </React.Fragment>
+    </div>
   );
 }
 
-export default AdminMngmntUsers;
+export default AdminUsersManagement;

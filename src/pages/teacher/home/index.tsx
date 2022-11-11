@@ -8,23 +8,7 @@ import ListProductCardTeacher from "../../../components/list-product-card-teache
 import { useState } from "react";
 
 export default function TeacherHome() {
-  const [listFormatClicked, setListFormatClicked] = useState(false);
   const [today, setToday] = useState(new Date());
-  const listFormat = () => {
-    return (
-      <>
-        <ListProductCardTeacher />
-      </>
-    );
-  };
-
-  const gridFormat = () => {
-    return (
-      <>
-        <ProductCardTeacher />
-      </>
-    );
-  };
 
   return (
     <div className="teacherHomePage">

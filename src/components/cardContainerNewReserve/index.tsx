@@ -69,7 +69,7 @@ export default function CardContainerNewReserve(props: productProps) {
       />
       <div className="containerImgAndName">
         <div className="img">
-          <img src={props.img} alt="gradeLayout" />
+          <img src={'data:image/png;base64,'+ props.img} alt="gradeLayout" />
         </div>
         <div className="name">
           <h1>{props.name}</h1>

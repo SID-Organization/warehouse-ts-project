@@ -7,19 +7,37 @@ import clock from "../../../assets/clock.png";
 
 import ProductCardTeacher from "../../../components/ProductCard";
 import ListProductCardTeacher from "../../../components/ListProductCard";
-import CardContainerNewReserve from "../../../components/cardContainerNewReserve";
+import CardContainerNewReserve from "../../../components/CardContainerNewReserve";
 
 import { Key, useState } from "react";
 
 export default function TeacherNewReserve() {
   const [today, setToday] = useState(new Date());
-  const [items, setItems] = useState(getItemFromLocalStorage());
+  const [itemsList, setItems] = useState(getItemsFromLocalStorage());
 
-  function getItemFromLocalStorage() {
+  function getItemsFromLocalStorage() {
     const listProducts = JSON.parse(
       localStorage.getItem("listProducts") || "[]"
     );
+    console.log(listProducts);
     return listProducts;
+  }
+
+  function saveReserveOnDatabase(){
+  //   {
+  //     "matricula": {"matricula": 72130},
+  //     "status": "ATIVO" ,
+  //     "dataRetirada": "2022-11-20" ,
+  //     "dataRetirado": "",
+  //     "dataDevolucao": "2022-11-30",
+  //     "reservaItem": [
+  //         {
+  //             "idItem": {"idItem" : 3},
+  //             "qtdItensReserva": 1
+  //         }
+  //     ]
+  // }
+    console.log(itemsList);
   }
 
   return (
@@ -46,7 +64,7 @@ export default function TeacherNewReserve() {
                 <h1>Produtos</h1>
               </div>
               <div className="containerQtyProducts">
-                <span>{items.length} produto{items.length > 1 && 's'}</span>
+                <span>{itemsList.length} produto{itemsList.length > 1 && 's'}</span>
               </div>
             </div>
             <div className="reserveMain">
@@ -72,21 +90,10 @@ export default function TeacherNewReserve() {
                 </div>
               </div>
               <div className="containerProductsCard">
-                {items.map(
-                  (product: {
-                    name: string;
-                    quantity: number;
-                    idEstoque: number;
-                    nome: string;
-                    quantidade_estoque: number;
-                    caracteristica: string | undefined;
-                    classificacao: string;
-                    detalhes: string | undefined;
-                    descartavel: boolean;
-                    ativo: boolean;
-                    img: string | undefined;
-                  }) => (
+                {itemsList.map(
+                  (product: any, index: number) => (
                     <CardContainerNewReserve
+                    key={index}
                       idEstoque={product.idEstoque}
                       name={product.name}
                       quantity={product.quantity}
@@ -164,7 +171,9 @@ export default function TeacherNewReserve() {
             </div>
             <div className="containerLine"></div>
             <div className="containerButton">
-              <button>Solicitar reserva</button>
+              <button
+                onClick={() => saveReserveOnDatabase()}
+              >Solicitar reserva</button>
             </div>
           </div>
         </div>
