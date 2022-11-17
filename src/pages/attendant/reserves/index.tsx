@@ -3,7 +3,7 @@ import "./styles.scss";
 
 import ReserveCard from "../../../components/ReserveCard";
 import GridReserveCard from "../../../components/GridReserveCard";
-import Filter from "../../../components/filter";
+import Filter from "../../../components/Filter";
 
 import gridIcon from "../../../assets/gradeLayout.png";
 import listIcon from "../../../assets/list.png";
@@ -13,16 +13,23 @@ import searchIcon from "../../../assets/search-icon.png";
 export default function AttendantReserves() {
 
   const [today, setToday] = useState(new Date());
-  const [listLayout, setListLayout0] = useState(true);
+  const [listLayout, setListLayout] = useState(true);
   const [openFilter, setOpenFilter] = useState(false);
+  const [reservesList, setReservesList] = useState<any[]>([]);
 
-  const createDateTitle = () => {
-    return (
-      <div className="date-title">
-        {today.toLocaleDateString()}
-      </div>
-    )
-  }
+  useEffect(() => {
+    fetch("http://localhost:8080/almoxarifado/reservas")
+    .then(response => response.json())
+    .then(data => setReservesList(data));
+  }, [])
+
+  useEffect(() => {
+    console.log(reservesList);
+  }, [reservesList])
+
+  const getReservesInList = () => {
+    return reservesList.map(e => <ReserveCard />);
+  };
 
   const handleSearchClick = () => {
     var scrollDiv = document.getElementById(
@@ -32,7 +39,6 @@ export default function AttendantReserves() {
     window.scrollTo({ top: scrollDiv - 60, behavior: "smooth" });
   };  
 
-  const lista = [1, 2, 3, 4, 5];
 
   return (
     <div className=" attendant-reserves-container">
@@ -79,8 +85,8 @@ export default function AttendantReserves() {
         id={listLayout ? "list-reserve-cards" : "grid-reserve-cards-wrapper"}
       >
         {listLayout
-          ? lista.map(e => <ReserveCard />)
-          : lista.map(e => <GridReserveCard />)}
+          ? getReservesInList()
+          : reservesList.map(e => <GridReserveCard />)}
       </div>
     </div>
   );
