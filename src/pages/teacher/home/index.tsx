@@ -1,10 +1,5 @@
 import "./styles.scss";
 
-import gradeLayout from "../../../assets/gradeLayout.png";
-import listLayout from "../../../assets/list.png";
-
-import ProductCardTeacher from "../../../components/product-card-teacher/productCardTeacher";
-import ListProductCardTeacher from "../../../components/list-product-card-teacher/ListProductCardTeacher";
 import { useState } from "react";
 
 export default function TeacherHome() {

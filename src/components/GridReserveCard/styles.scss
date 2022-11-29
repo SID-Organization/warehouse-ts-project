@@ -48,8 +48,13 @@
                 justify-content: space-between;
                 div{
                     img{
-                        width: 40px;
+                        width: 35px;
                     }
+                    cursor: pointer;
+                }
+
+                div:hover{
+                    filter: brightness(0.8);
                 }
             }
         }
@@ -100,5 +105,47 @@
 
         }
 
+    }
+
+    .reserved-itens{
+        .reserved-itens-header{
+            margin-top: 1rem;
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .reserved-itens-list{
+            padding: 5px;
+            border: 1px solid #707070;
+            border-radius: 4px;
+            margin-top: 1rem;
+            overflow-y: scroll;
+            max-height: 9rem;
+        }
+        
+        .reserved-item{
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr 1fr;
+            
+            padding: 8px;
+
+            div{
+                display: flex;
+                align-items: center;
+            }
+
+            img {
+                width: 45px;
+                border-radius: 2px;
+                margin-right: 0.5rem;
+            }
+
+            #prod-qtd{
+                width: 100%;
+                text-align: center;
+            }
+        }
     }
 }

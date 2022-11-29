@@ -28,7 +28,11 @@ export default function AttendantReserves() {
   }, [reservesList])
 
   const getReservesInList = () => {
-    return reservesList.map(e => <ReserveCard />);
+    return reservesList.map(e => <ReserveCard reserve={e}/>);
+  };
+
+  const getReservesInGrid = () => {
+    return reservesList.map(e => <GridReserveCard reserve={e}/>);
   };
 
   const handleSearchClick = () => {
@@ -86,7 +90,7 @@ export default function AttendantReserves() {
       >
         {listLayout
           ? getReservesInList()
-          : reservesList.map(e => <GridReserveCard />)}
+          : getReservesInGrid()}
       </div>
     </div>
   );

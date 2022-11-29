@@ -5,13 +5,13 @@ import avatar from "../../assets/avatar-icon.png";
 
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 
 
 export default function Header() {
   const navigateTo = useNavigate();
-  const currentUser = JSON.parse(localStorage.getItem("user")!);
-  console.log(currentUser);
+  const [currentUser, setCurrentUser] = useState<any>(localStorage.getItem("user")!);
 
   const handleLogOff = () => {
     localStorage.clear();

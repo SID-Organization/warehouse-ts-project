@@ -40,6 +40,7 @@ export default function TeacherProducts() {
             active={product.ativo}
             img={product.fotoIlustrativa}
             idEstoque={product.idEstoque}
+            idItem={product.idItem}
           />
         ))}
       </React.Fragment>
@@ -52,6 +53,7 @@ export default function TeacherProducts() {
         {products.map((product, index) => (
           <ProductCardTeacher
             key={index}
+            idItem={product.idItem}
             name={product.nomeItem}
             storageQuantity={
               product.idEspacoOrganizacional.qtdItemEspacoOrganizacional

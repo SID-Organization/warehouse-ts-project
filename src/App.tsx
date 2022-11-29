@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import ReactDOM from "react-dom/client";
+import { useState } from "react";
 import {
   BrowserRouter as Router,
   Navigate,
@@ -13,13 +12,12 @@ import Header from "./components/Header";
 import TeacherProducts from "./pages/teacher/products";
 import TeacherHome from "./pages/teacher/reserves";
 import TeacherNewReserve from "./pages/teacher/new-reserve";
-import ReserveHistoric from "./pages/teacher/reserve-historic";
 
 import ReservesTeacher from "./pages/admin/reserves-teacher";
 
 import AttendantHome from "./pages/attendant/home";
 import AttendantReserves from "./pages/attendant/reserves";
-import SideBar from "./components/Sidebar";
+import SideBar from "./components/SideBar";
 
 
 import Login from "./pages/login";
@@ -37,6 +35,7 @@ import AdminInsertNewItem from "./pages/admin/insert-new-item";
 import AdminHome from "./pages/admin/home";
 import NewStorageSpace from "./pages/admin/new-storage-space";
 import Fields from "./pages/admin/fields";
+import HistReservaId from "./pages/teacher/hist-reserva-id";
 
 export default function App() {
   const [user, setUser] = useState(localStorage.getItem("user"));
@@ -46,6 +45,7 @@ export default function App() {
   const [teacherUser, setTeacherUser] = useState(
     localStorage.getItem("teacherUser")
   );
+  
   const [adminUser, setAdminUser] = useState(localStorage.getItem("adminUser"));
 
   function getAdminSideBar() {
@@ -124,41 +124,35 @@ export default function App() {
               <Route
                 path="*"
                 element={
-                  <Navigate
-                    to={
-                      !user
-                        ? "/login"
-                        : adminUser
-                        ? "/admin/home"
-                        : attendantUser
-                        ? "/atendente/home"
-                        : "professor/home"
-                    }
-                  />
+                  user ? (
+                    <Navigate to={adminUser ? "/admin/home" : attendantUser ? "/atendente/home" : "/professor/home"} />
+                  ) : (
+                    <Navigate to="/login" />
+                  )
                 }
               />
 
               <Route path="/login" element={<Login />} />
               <Route path="/cadastro" element={<Register />} />
               <Route path="/profile" element={<Profile />} />
+
+              {/* ATENDENTE */}
               <Route path="/atendente/home" element={<AttendantHome />} />
               <Route
                 path="/atendente/reservas"
                 element={<AttendantReserves />}
               />
 
+              {/* PROFESSOR */}
               <Route path="/professor/produtos" element={<TeacherProducts />} />
               <Route path="/professor/reservas" element={<TeacherHome />} />
               <Route
                 path="/professor/nova-reserva"
                 element={<TeacherNewReserve />}
               />
-              <Route
-                path="/professor/historico-reservas"
-                element={<ReserveHistoric />}
-              />
+              <Route path="/professor/reserva/:idReserva" element={<HistReservaId />}/>
 
-                
+              {/* ADMIN */}
               <Route path="/admin/home" element={<AdminHome />} />
               <Route
                 path="/admin/cadastrar-item"

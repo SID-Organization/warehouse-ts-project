@@ -1,146 +1,42 @@
 import "./styles.scss";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ReserveHistCard from "./ReserverHistCard"; 
 
 export default function TeacherHome() {
-  const [listFormatClicked, setListFormatClicked] = useState(false);
   const [filterSelected, setFilterSelected] = useState(0);
   const [today, setToday] = useState(new Date());
+  const [reservesList, setReservesList] = useState<any[]>([]);
 
-  const reservesMock = {
-    reserves: [
-      {
-        status: "À RETIRAR",
-        date: "SEGUNDA-FEIRA, 13/06/2022",
-        seeReserve: "VER RESERVA",
-        listTools: [
-          { name: "- Martelo" },
-          { name: "- Prego" },
-          { name: "- Prego" },
-          { name: "- Prego" },
-        ],
-      },
-      {
-        status: "A DEVOLVER",
-        date: "SEGUNDA-FEIRA, 13/06/2022",
-        seeReserve: "VER RESERVA",
-        listTools: [{ name: "Martelo" }, { name: "Prego" }],
-      },
-      {
-        status: "CANCELADA",
-        date: "SEGUNDA-FEIRA, 13/06/2022",
-        seeReserve: "VER RESERVA",
-        listTools: [{ name: "Martelo" }, { name: "Prego" }],
-      },
-      {
-        status: "CANCELADA",
-        date: "SEGUNDA-FEIRA, 13/06/2022",
-        seeReserve: "VER RESERVA",
-        listTools: [{ name: "Martelo" }, { name: "Prego" }],
-      },
-    ],
-  };
+  useEffect(() => {
+    fetch("http://localhost:8080/almoxarifado/reservas")
+      .then((response) => response.json())
+      .then((data) => setReservesList(data));
+  }, [])
+
+  useEffect(() => {
+    console.log(reservesList);
+  }, [reservesList])
 
   const getReserves = () => {
-    let texto = "";
-    let reserves: any[] = [];
-
+    let reserves;
     if (filterSelected === 0) {
-      texto = "Reservas à retirar";
-      reserves = reservesMock.reserves.filter(
-        (reserve) => reserve.status === "À RETIRAR"
-      );
+      reserves = reservesList;
     } else if (filterSelected === 1) {
-      texto = "Todas as reservas";
-      reserves = reservesMock.reserves;
+      reserves = reservesList.filter(e => e.status === "RETIRAR");
     } else if (filterSelected === 2) {
-      texto = "Reservas à devolver";
-      reserves = reservesMock.reserves.filter(
-        (reserva) => reserva.status === "A DEVOLVER"
-      );
+      reserves = reservesList.filter(e => e.status === "ATIVO" || e.status === "ATRASADO");
     } else if (filterSelected === 3) {
-      texto = "Histórico das reservas";
-      reserves = reservesMock.reserves.filter(
-        (reserva) => reserva.status === "CANCELADA"
-      );
+      reserves = reservesList.filter(e => e.status === "CANCELADO");
     }
-    console.log(reserves);
+
     return (
-      <>
-        <div className="reserves">
-          {reserves?.map((reserva) => (
-            <>
-              {listFormatClicked ? (
-                <div className="reserve">
-                  <div className="reserve">
-                    <div className="containerStatusCard">
-                      <div className="reserve-status">{reserva.status}</div>
-                      {reserva.status === "À RETIRAR" ? (
-                        <div className="containerStatusProp">
-                          <div className="status retirar"></div>
-                        </div>
-                      ) : reserva.status === "A DEVOLVER" ? (
-                        <div className="containerStatusProp">
-                          <div className="status devolver"></div>
-                        </div>
-                      ) : (
-                        <div className="containerStatusProp">
-                          <div className="status cancelada"></div>
-                        </div>
-                      )}
-                    </div>
-                    <div className="reserve-date">{reserva.date}</div>
-                    <div className="reserve-see">{reserva.seeReserve}</div>
-                    <div className="reserve-tools">
-                      <div className="containerTools">
-                        {reserva.listTools?.map((tool: { name: string }) => (
-                          <div className="reserve-tool">{tool.name}</div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div className="reserve">
-                  <div className="containerStatusCard">
-                    <div className="reserve-status">{reserva.status}</div>
-                    {reserva.status === "À RETIRAR" ? (
-                      <div className="containerStatusProp">
-                        <div className="status retirar"></div>
-                      </div>
-                    ) : reserva.status === "A DEVOLVER" ? (
-                      <div className="containerStatusProp">
-                        <div className="status devolver"></div>
-                      </div>
-                    ) : (
-                      <div className="containerStatusProp">
-                        <div className="status cancelada"></div>
-                      </div>
-                    )}
-                  </div>
-                  <div className="reserve-date">{reserva.date}</div>
-                  <Link
-                    to={{
-                      pathname: "/professor/historico-reservas",
-                    }}
-                  >
-                    <div className="reserve-see">{reserva.seeReserve}</div>
-                  </Link>
-                  <div className="reserve-tools">
-                    <div className="containerTools">
-                      {reserva.listTools?.map((tool: { name: string }) => (
-                        <div className="reserve-tool">{tool.name}</div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </>
-          ))}
-        </div>
-      </>
-    );
+      reserves?.map(e => (
+        <Link to={`/professor/reserva/${e.idReserva}`} key={e.id}>
+          <ReserveHistCard reserve={e} />
+        </Link>
+    )))
   };
 
   return (
@@ -164,7 +60,7 @@ export default function TeacherHome() {
           <div
             className="filters"
             onClick={() => {
-              setFilterSelected(1);
+              setFilterSelected(0);
             }}
           >
             Todas as reservas
@@ -172,7 +68,7 @@ export default function TeacherHome() {
           <div
             className="filters"
             onClick={() => {
-              setFilterSelected(0);
+              setFilterSelected(1);
             }}
           >
             Reservas à retirar

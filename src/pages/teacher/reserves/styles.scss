@@ -204,4 +204,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
+
+  .reserve-cards{
+    display: flex;
+    .reserve-card{
+      margin-right: 2rem;
+    };
+    flex-wrap: wrap;
+  }
 }

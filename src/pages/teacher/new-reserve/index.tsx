@@ -36,7 +36,7 @@ export default function TeacherNewReserve() {
   async function saveReserveOnDatabase() {
     const reserveToSave = {
       matricula: { matricula: user.matricula },
-      status: "ATIVO",
+      status: "RETIRAR",
       dataRetirada: dataHoraRetirada.data + "T" + dataHoraRetirada.hora,
       dataRetirado: "",
       dataDevolucao:
